@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="no">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>Sørloths VM-reise</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="hero">
+        <div class="brand">Fosna-Folket presenterer</div>
+        <h1>Sørloths VM-reise</h1>
+        <p class="tagline">
+          Hopp over hindringer, samle kilometer og hjelp Sørloth hele veien fra Fosen til VM i USA.
+        </p>
+      </header>
+
+      <section class="hud" aria-label="Spillstatus">
+        <div class="hud-card">
+          <span class="hud-label">Kilometer</span>
+          <strong id="kmCount">0 km</strong>
+        </div>
+        <div class="hud-card">
+          <span class="hud-label">Målpoeng</span>
+          <strong id="scoreCount">0</strong>
+        </div>
+        <div class="hud-card">
+          <span class="hud-label">Fart</span>
+          <strong id="speedCount">1.0x</strong>
+        </div>
+      </section>
+
+      <section class="progress-panel">
+        <div class="route-copy" id="routeCopy">
+          Du har kommet 0 km. Det er 6000 km igjen til USA.
+        </div>
+        <div class="progress-track" aria-hidden="true">
+          <div class="progress-fill" id="progressFill"></div>
+          <div class="progress-stops">
+            <span>Rissa</span>
+            <span>Trondheim</span>
+            <span>Atlanteren</span>
+            <span>USA</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="game-card">
+        <div class="fact-box" id="factBox">Alexander Sørloth er fra Trøndelag.</div>
+        <canvas id="gameCanvas" width="960" height="540" aria-label="Spillflate"></canvas>
+
+        <div class="overlay" id="startOverlay">
+          <div class="overlay-panel">
+            <h2>Klar for avspark?</h2>
+            <p>Trykk for å hoppe. Samle fotballer for kilometer, og skyt bonusmål for ekstra poeng.</p>
+            <button class="primary-button" id="startButton">Start spillet</button>
+          </div>
+        </div>
+
+        <div class="overlay hidden" id="gameOverOverlay">
+          <div class="overlay-panel">
+            <div class="victory-banner hidden" id="victoryBanner">KLAR FOR VM!</div>
+            <h2 id="gameOverTitle">Turen er over</h2>
+            <p id="gameOverText"></p>
+            <div class="overlay-actions">
+              <button class="primary-button" id="restartButton">Spill igjen</button>
+              <button class="secondary-button" id="shareButton">Del resultat</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="info-grid">
+        <article class="info-card">
+          <h3>Slik spiller du</h3>
+          <p>Trykk eller bruk mellomrom for å hoppe. Sørloth løper automatisk framover hele tiden.</p>
+        </article>
+        <article class="info-card">
+          <h3>Lokal reise</h3>
+          <p>Du starter på Rissa og passerer lokale stopp før du krysser Atlanteren på vei mot VM.</p>
+        </article>
+        <article class="info-card">
+          <h3>Kort og gøy</h3>
+          <p>Én runde varer bare noen få minutter, så det er lett å prøve en gang til for bedre score.</p>
+        </article>
+      </section>
+    </main>
+
+    <script src="game.js"></script>
+  </body>
+</html>
