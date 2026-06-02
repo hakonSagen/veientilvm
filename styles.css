@@ -196,9 +196,26 @@
   box-shadow: 0 8px 20px rgba(24, 33, 47, 0.08);
 }
 
+[id^="pm-widget-sorloths-vm-reise"] .pmwv-milestone-box {
+  position: absolute;
+  top: 4.75rem;
+  left: 0.75rem;
+  z-index: 2;
+  max-width: min(26rem, calc(100% - 1.5rem));
+  margin: 0;
+  padding: 0.55rem 0.8rem;
+  border-radius: 999px;
+  background: rgba(24, 33, 47, 0.82);
+  color: #ffffff;
+  font-size: 0.95rem;
+  font-weight: 700;
+  box-shadow: 0 8px 16px rgba(24, 33, 47, 0.18);
+}
+
 [id^="pm-widget-sorloths-vm-reise"] .pmwv-canvas-shell {
   width: 100%;
   padding: 0.2rem;
+  padding-top: 6.2rem;
 }
 
 [id^="pm-widget-sorloths-vm-reise"] .pmwv-canvas {
@@ -316,5 +333,20 @@
 
   [id^="pm-widget-sorloths-vm-reise"] .pmwv-info-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 520px) {
+  [id^="pm-widget-sorloths-vm-reise"] .pmwv-progress-stops {
+    font-size: 0.76rem;
+  }
+
+  [id^="pm-widget-sorloths-vm-reise"] .pmwv-milestone-box {
+    top: 5.2rem;
+    font-size: 0.86rem;
+  }
+
+  [id^="pm-widget-sorloths-vm-reise"] .pmwv-canvas-shell {
+    padding-top: 6.8rem;
   }
 }

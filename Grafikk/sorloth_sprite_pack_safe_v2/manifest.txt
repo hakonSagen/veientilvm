@@ -1,0 +1,20 @@
+Canvas: 320x320
+Baseline Y: 292
+Margins: left/right=24, top=24, bottom=28
+
+Files:
+sorloth_idle.png
+sorloth_run1.png
+sorloth_run2.png
+sorloth_run3.png
+sorloth_jump.png
+sorloth_kick.png
+sorloth_hit.png
+sorloth_slide.png
+sorloth_back.png
+sorloth_stand.png
+sorloth_point.png
+sorloth_trophy.png
+sorloth_dribble.png
+sorloth_sprint.png
+sorloth_celebrate.png
