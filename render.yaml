@@ -1,7 +1,7 @@
 services:
   - type: web
     runtime: static
-    name: sorloths-vm-reise
+    name: fosningen-vm-reise
     buildCommand: "echo 'Static site ready'"
     staticPublishPath: ./
     previews:

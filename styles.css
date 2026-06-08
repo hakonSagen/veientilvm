@@ -1,53 +1,51 @@
-[id^="pm-widget-sorloths-vm-reise"] {
+[id^="pm-widget-fosningen-vm-reise"] {
   width: 100%;
   max-width: min(100%, 72rem);
   margin: 0 auto;
-  padding: 1rem;
+  padding: 0.25rem 0;
   font-family: var(--font-system, system-ui, sans-serif);
   color: var(--summary-title, #18212f);
   background:
-    radial-gradient(circle at top, rgba(255, 212, 120, 0.16), transparent 28%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgba(247, 250, 255, 0.96));
-  border-radius: 12px;
+    linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(248, 250, 253, 0.98));
 }
 
 @media (min-width: 900px) {
-  [id^="pm-widget-sorloths-vm-reise"] {
+  [id^="pm-widget-fosningen-vm-reise"] {
     width: 80%;
   }
 }
 
-[id^="pm-widget-sorloths-vm-reise"] *,
-[id^="pm-widget-sorloths-vm-reise"] *::before,
-[id^="pm-widget-sorloths-vm-reise"] *::after {
+[id^="pm-widget-fosningen-vm-reise"] *,
+[id^="pm-widget-fosningen-vm-reise"] *::before,
+[id^="pm-widget-fosningen-vm-reise"] *::after {
   box-sizing: border-box;
 }
 
-[id^="pm-widget-sorloths-vm-reise"] .pmwv-hero,
-[id^="pm-widget-sorloths-vm-reise"] .pmwv-hud-card,
-[id^="pm-widget-sorloths-vm-reise"] .pmwv-progress-panel,
-[id^="pm-widget-sorloths-vm-reise"] .pmwv-game-card,
-[id^="pm-widget-sorloths-vm-reise"] .pmwv-info-card,
-[id^="pm-widget-sorloths-vm-reise"] .pmwv-overlay-panel {
+[id^="pm-widget-fosningen-vm-reise"] .pmwv-hero,
+[id^="pm-widget-fosningen-vm-reise"] .pmwv-hud-card,
+[id^="pm-widget-fosningen-vm-reise"] .pmwv-progress-panel,
+[id^="pm-widget-fosningen-vm-reise"] .pmwv-game-card,
+[id^="pm-widget-fosningen-vm-reise"] .pmwv-info-card,
+[id^="pm-widget-fosningen-vm-reise"] .pmwv-overlay-panel {
   border-radius: 10px;
-  border: 1px solid rgba(24, 33, 47, 0.1);
+  border: 1px solid rgba(24, 33, 47, 0.08);
   background: var(--summary-bg, rgba(255, 255, 255, 0.94));
-  box-shadow: 0 10px 28px rgba(24, 33, 47, 0.08);
+  box-shadow: 0 8px 22px rgba(24, 33, 47, 0.06);
 }
 
-[id^="pm-widget-sorloths-vm-reise"] .pmwv-hero {
-  padding: 1.15rem 1.15rem 1rem;
-  margin-bottom: 1rem;
+[id^="pm-widget-fosningen-vm-reise"] .pmwv-hero {
+  padding: 0.85rem 1rem 0.8rem;
+  margin-bottom: 0.65rem;
   text-align: center;
   background:
-    linear-gradient(135deg, rgba(181, 31, 42, 0.98), rgba(122, 20, 31, 0.98)),
+    linear-gradient(135deg, rgba(156, 24, 35, 0.98), rgba(112, 18, 29, 0.98)),
     var(--summary-bg, rgba(255, 255, 255, 0.94));
   color: #ffffff;
   border: 0;
-  box-shadow: 0 16px 34px rgba(122, 20, 31, 0.2);
+  box-shadow: 0 12px 28px rgba(122, 20, 31, 0.16);
 }
 
-[id^="pm-widget-sorloths-vm-reise"] .pmwv-kicker {
+[id^="pm-widget-fosningen-vm-reise"] .pmwv-kicker {
   margin: 0 0 0.5rem;
   font-size: 0.82rem;
   font-weight: 700;
@@ -56,70 +54,72 @@
   text-transform: uppercase;
 }
 
-[id^="pm-widget-sorloths-vm-reise"] .pmwv-title {
+[id^="pm-widget-fosningen-vm-reise"] .pmwv-title {
   margin: 0 0 0.5rem;
-  font-size: clamp(2.2rem, 4.8vw, 3.5rem);
+  font-size: clamp(1.8rem, 4.2vw, 3rem);
   line-height: 0.98;
   font-weight: 900;
   text-wrap: balance;
 }
 
-[id^="pm-widget-sorloths-vm-reise"] .pmwv-dek-shell {
+[id^="pm-widget-fosningen-vm-reise"] .pmwv-dek-shell {
   display: flex;
   flex-direction: column;
   gap: 0.7rem;
   align-items: center;
 }
 
-[id^="pm-widget-sorloths-vm-reise"] .pmwv-tagline,
-[id^="pm-widget-sorloths-vm-reise"] .pmwv-route-copy,
-[id^="pm-widget-sorloths-vm-reise"] .pmwv-fact-box,
-[id^="pm-widget-sorloths-vm-reise"] .pmwv-info-card p,
-[id^="pm-widget-sorloths-vm-reise"] .pmwv-overlay-panel p {
+[id^="pm-widget-fosningen-vm-reise"] .pmwv-tagline,
+[id^="pm-widget-fosningen-vm-reise"] .pmwv-route-copy,
+[id^="pm-widget-fosningen-vm-reise"] .pmwv-fact-box,
+[id^="pm-widget-fosningen-vm-reise"] .pmwv-info-card p,
+[id^="pm-widget-fosningen-vm-reise"] .pmwv-overlay-panel p {
   font-size: 1rem;
   line-height: 1.5;
 }
 
-[id^="pm-widget-sorloths-vm-reise"] .pmwv-tagline {
+[id^="pm-widget-fosningen-vm-reise"] .pmwv-tagline {
   margin: 0;
-  max-width: 42rem;
-  color: rgba(255, 255, 255, 0.95);
+  max-width: 38rem;
+  color: rgba(255, 255, 255, 0.92);
 }
 
-[id^="pm-widget-sorloths-vm-reise"] .pmwv-stamp {
+[id^="pm-widget-fosningen-vm-reise"] .pmwv-stamp {
   margin: 0;
-  padding: 0.35rem 0.65rem;
+  padding: 0.28rem 0.6rem;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.14);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  font-size: 0.84rem;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  font-size: 0.78rem;
   font-weight: 800;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
-[id^="pm-widget-sorloths-vm-reise"] .pmwv-hud,
-[id^="pm-widget-sorloths-vm-reise"] .pmwv-info-grid {
+
+[id^="pm-widget-fosningen-vm-reise"] .pmwv-hud,
+[id^="pm-widget-fosningen-vm-reise"] .pmwv-info-grid {
   display: grid;
   gap: 0.75rem;
 }
 
-[id^="pm-widget-sorloths-vm-reise"] .pmwv-hud {
-  grid-template-columns: 1fr;
-  margin-bottom: 1rem;
+[id^="pm-widget-fosningen-vm-reise"] .pmwv-hud {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin: 0;
 }
 
-[id^="pm-widget-sorloths-vm-reise"] .pmwv-hud-card,
-[id^="pm-widget-sorloths-vm-reise"] .pmwv-progress-panel,
-[id^="pm-widget-sorloths-vm-reise"] .pmwv-info-card {
-  padding: 0.95rem 1rem;
+[id^="pm-widget-fosningen-vm-reise"] .pmwv-hud-card,
+[id^="pm-widget-fosningen-vm-reise"] .pmwv-progress-panel,
+[id^="pm-widget-fosningen-vm-reise"] .pmwv-info-card {
+  padding: 0.7rem 0.85rem;
 }
 
-[id^="pm-widget-sorloths-vm-reise"] .pmwv-hud-card {
+[id^="pm-widget-fosningen-vm-reise"] .pmwv-hud-card {
   text-align: center;
+  background: rgba(255, 255, 255, 0.82);
 }
 
-[id^="pm-widget-sorloths-vm-reise"] .pmwv-label {
+[id^="pm-widget-fosningen-vm-reise"] .pmwv-label {
   display: block;
   margin-bottom: 0.25rem;
   font-size: 0.86rem;
@@ -129,36 +129,42 @@
   text-transform: uppercase;
 }
 
-[id^="pm-widget-sorloths-vm-reise"] .pmwv-hud-card strong {
-  font-size: 1.55rem;
+[id^="pm-widget-fosningen-vm-reise"] .pmwv-hud-card strong {
+  font-size: 1.2rem;
 }
 
-[id^="pm-widget-sorloths-vm-reise"] .pmwv-progress-panel {
-  margin-bottom: 1rem;
-  padding-top: 0.8rem;
-  padding-bottom: 0.8rem;
+[id^="pm-widget-fosningen-vm-reise"] .pmwv-progress-panel {
+  margin-bottom: 0.75rem;
+  padding-top: 0.7rem;
+  padding-bottom: 0.7rem;
 }
 
-[id^="pm-widget-sorloths-vm-reise"] .pmwv-route-copy {
+[id^="pm-widget-fosningen-vm-reise"] .pmwv-route-copy {
   margin: 0 0 0.75rem;
   font-weight: 700;
 }
 
-[id^="pm-widget-sorloths-vm-reise"] .pmwv-progress-track {
+[id^="pm-widget-fosningen-vm-reise"] .pmwv-route-copy-inline {
+  margin: 0;
+  padding: 0.2rem 0.75rem 0.5rem;
+  font-size: 0.95rem;
+}
+
+[id^="pm-widget-fosningen-vm-reise"] .pmwv-progress-track {
   overflow: hidden;
   border-radius: 999px;
   background: rgba(24, 33, 47, 0.08);
   border: 1px solid rgba(24, 33, 47, 0.06);
 }
 
-[id^="pm-widget-sorloths-vm-reise"] .pmwv-progress-fill {
+[id^="pm-widget-fosningen-vm-reise"] .pmwv-progress-fill {
   width: 0;
   min-height: 1.05rem;
   background: linear-gradient(90deg, #2f9d55 0%, #f4b63f 52%, var(--color-primary, #b51f2a) 100%);
   transition: width 180ms ease-out;
 }
 
-[id^="pm-widget-sorloths-vm-reise"] .pmwv-progress-stops {
+[id^="pm-widget-fosningen-vm-reise"] .pmwv-progress-stops {
   display: flex;
   justify-content: space-between;
   gap: 0.5rem;
@@ -168,114 +174,54 @@
   color: rgba(24, 33, 47, 0.72);
 }
 
-[id^="pm-widget-sorloths-vm-reise"] .pmwv-game-card {
+[id^="pm-widget-fosningen-vm-reise"] .pmwv-game-card {
   position: relative;
   overflow: hidden;
-  margin-bottom: 1rem;
+  margin-bottom: 0;
   background:
-    linear-gradient(180deg, rgba(138, 208, 255, 0.14), rgba(84, 165, 88, 0.08)),
+    linear-gradient(180deg, rgba(138, 208, 255, 0.08), rgba(84, 165, 88, 0.04)),
     var(--summary-bg, rgba(255, 255, 255, 0.94));
-  border: 1px solid rgba(24, 33, 47, 0.12);
-  box-shadow:
-    0 10px 28px rgba(24, 33, 47, 0.08),
-    inset 0 0 0 4px rgba(255, 255, 255, 0.22);
+  border: 1px solid rgba(24, 33, 47, 0.1);
+  box-shadow: 0 8px 20px rgba(24, 33, 47, 0.06);
 }
 
-[id^="pm-widget-sorloths-vm-reise"] .pmwv-fact-box {
+[id^="pm-widget-fosningen-vm-reise"] .pmwv-game-toolbar {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  gap: 0.6rem;
+  padding: 0.6rem;
+  padding-bottom: 0;
+}
+
+[id^="pm-widget-fosningen-vm-reise"] .pmwv-fullscreen-button {
+  flex: 0 0 auto;
+  white-space: nowrap;
+}
+
+[id^="pm-widget-fosningen-vm-reise"] .pmwv-fact-box {
   position: absolute;
-  top: 0.75rem;
+  top: 4rem;
   left: 0.75rem;
   right: 0.75rem;
   z-index: 2;
   margin: 0;
-  padding: 0.625rem 0.875rem;
+  padding: 0.55rem 0.8rem;
   border-radius: 10px;
-  background: rgba(255, 250, 236, 0.94);
-  border: 1px solid rgba(181, 31, 42, 0.1);
+  background: rgba(255, 255, 255, 0.88);
+  border: 1px solid rgba(24, 33, 47, 0.08);
   font-weight: 700;
-  box-shadow: 0 8px 20px rgba(24, 33, 47, 0.08);
+  box-shadow: 0 6px 18px rgba(24, 33, 47, 0.07);
+  backdrop-filter: blur(6px);
 }
 
-[id^="pm-widget-sorloths-vm-reise"] .pmwv-milestone-box {
-  position: absolute;
-  top: 4.75rem;
-  left: 0.75rem;
-  z-index: 2;
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 0.75rem;
-  align-items: center;
-  max-width: min(24rem, calc(100% - 1.5rem));
-  margin: 0;
-  padding: 0.7rem 0.8rem;
-  border-radius: 12px;
-  background: rgba(255, 255, 255, 0.95);
-  color: #18212f;
-  border: 1px solid rgba(24, 33, 47, 0.08);
-  box-shadow: 0 10px 24px rgba(24, 33, 47, 0.16);
-}
-
-[id^="pm-widget-sorloths-vm-reise"] .pmwv-milestone-media {
-  width: 4.5rem;
-  height: 4.5rem;
-  border-radius: 10px;
-  background-color: rgba(24, 33, 47, 0.06);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
-  border: 1px solid rgba(24, 33, 47, 0.08);
-}
-
-[id^="pm-widget-sorloths-vm-reise"] .pmwv-milestone-copy {
-  min-width: 0;
-}
-
-[id^="pm-widget-sorloths-vm-reise"] .pmwv-milestone-kicker,
-[id^="pm-widget-sorloths-vm-reise"] .pmwv-milestone-title,
-[id^="pm-widget-sorloths-vm-reise"] .pmwv-milestone-text {
-  margin: 0;
-}
-
-[id^="pm-widget-sorloths-vm-reise"] .pmwv-milestone-kicker {
-  margin-bottom: 0.18rem;
-  font-size: 0.72rem;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--color-primary, #b51f2a);
-}
-
-[id^="pm-widget-sorloths-vm-reise"] .pmwv-milestone-title {
-  font-size: 1rem;
-  line-height: 1.15;
-}
-
-[id^="pm-widget-sorloths-vm-reise"] .pmwv-milestone-text {
-  margin-top: 0.22rem;
-  font-size: 0.9rem;
-  line-height: 1.3;
-  color: rgba(24, 33, 47, 0.82);
-}
-
-@media (max-width: 640px) {
-  [id^="pm-widget-sorloths-vm-reise"] .pmwv-milestone-box {
-    grid-template-columns: 1fr;
-    gap: 0.55rem;
-  }
-
-  [id^="pm-widget-sorloths-vm-reise"] .pmwv-milestone-media {
-    width: 4rem;
-    height: 4rem;
-  }
-}
-
-[id^="pm-widget-sorloths-vm-reise"] .pmwv-canvas-shell {
+[id^="pm-widget-fosningen-vm-reise"] .pmwv-canvas-shell {
   width: 100%;
   padding: 0.2rem;
-  padding-top: 6.2rem;
+  padding-top: 6.4rem;
 }
 
-[id^="pm-widget-sorloths-vm-reise"] .pmwv-canvas {
+[id^="pm-widget-fosningen-vm-reise"] .pmwv-canvas {
   display: block;
   width: 100%;
   height: auto;
@@ -284,7 +230,7 @@
   border-radius: 10px;
 }
 
-[id^="pm-widget-sorloths-vm-reise"] .pmwv-overlay {
+[id^="pm-widget-fosningen-vm-reise"] .pmwv-overlay {
   position: absolute;
   inset: 0;
   display: grid;
@@ -293,34 +239,63 @@
   background: rgba(0, 0, 0, 0.34);
 }
 
-[id^="pm-widget-sorloths-vm-reise"] .pmwv-hidden {
+[id^="pm-widget-fosningen-vm-reise"] .pmwv-hidden {
   display: none;
 }
 
-[id^="pm-widget-sorloths-vm-reise"] .pmwv-overlay-panel {
+[id^="pm-widget-fosningen-vm-reise"] .pmwv-overlay-panel {
   width: min(100%, 28rem);
   padding: 1.25rem;
   text-align: center;
 }
 
-[id^="pm-widget-sorloths-vm-reise"] .pmwv-overlay-panel h3,
-[id^="pm-widget-sorloths-vm-reise"] .pmwv-info-card h3 {
+[id^="pm-widget-fosningen-vm-reise"] .pmwv-overlay-kicker {
+  margin-bottom: 0.4rem;
+  color: rgba(24, 33, 47, 0.54);
+}
+
+[id^="pm-widget-fosningen-vm-reise"] .pmwv-start-list {
+  margin: 0 0 1rem;
+  padding: 0;
+  list-style: none;
+  text-align: left;
+}
+
+[id^="pm-widget-fosningen-vm-reise"] .pmwv-start-list li {
+  margin: 0 0 0.55rem;
+  padding-left: 1rem;
+  position: relative;
+}
+
+[id^="pm-widget-fosningen-vm-reise"] .pmwv-start-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.6rem;
+  width: 0.42rem;
+  height: 0.42rem;
+  border-radius: 999px;
+  background: var(--color-primary, #b51f2a);
+}
+
+[id^="pm-widget-fosningen-vm-reise"] .pmwv-overlay-panel h3,
+[id^="pm-widget-fosningen-vm-reise"] .pmwv-info-card h3 {
   margin: 0 0 0.625rem;
   font-size: 1.25rem;
   line-height: 1.15;
 }
 
-[id^="pm-widget-sorloths-vm-reise"] .pmwv-overlay-panel p {
+[id^="pm-widget-fosningen-vm-reise"] .pmwv-overlay-panel p {
   margin: 0 0 1rem;
 }
 
-[id^="pm-widget-sorloths-vm-reise"] .pmwv-overlay-actions {
+[id^="pm-widget-fosningen-vm-reise"] .pmwv-overlay-actions {
   display: flex;
   flex-wrap: wrap;
   gap: 0.625rem;
 }
 
-[id^="pm-widget-sorloths-vm-reise"] .pmwv-button {
+[id^="pm-widget-fosningen-vm-reise"] .pmwv-button {
   appearance: none;
   border: 1px solid transparent;
   border-radius: 10px;
@@ -331,23 +306,23 @@
   cursor: pointer;
 }
 
-[id^="pm-widget-sorloths-vm-reise"] .pmwv-button-primary {
+[id^="pm-widget-fosningen-vm-reise"] .pmwv-button-primary {
   background: var(--color-primary, #b51f2a);
   color: #ffffff;
   box-shadow: 0 10px 20px rgba(181, 31, 42, 0.2);
 }
 
-[id^="pm-widget-sorloths-vm-reise"] .pmwv-button-secondary {
+[id^="pm-widget-fosningen-vm-reise"] .pmwv-button-secondary {
   background: rgba(24, 33, 47, 0.08);
   color: var(--summary-title, #18212f);
 }
 
-[id^="pm-widget-sorloths-vm-reise"] .pmwv-button:focus-visible {
+[id^="pm-widget-fosningen-vm-reise"] .pmwv-button:focus-visible {
   outline: 3px solid rgba(181, 31, 42, 0.45);
   outline-offset: 2px;
 }
 
-[id^="pm-widget-sorloths-vm-reise"] .pmwv-victory-banner {
+[id^="pm-widget-fosningen-vm-reise"] .pmwv-victory-banner {
   display: inline-block;
   margin: 0 0 0.75rem;
   padding: 0.5rem 0.75rem;
@@ -358,52 +333,89 @@
   font-weight: 800;
 }
 
-[id^="pm-widget-sorloths-vm-reise"] .pmwv-overlay-panel.pmwv-victory {
+[id^="pm-widget-fosningen-vm-reise"] .pmwv-overlay-panel.pmwv-victory {
   border-color: rgba(181, 31, 42, 0.2);
   background: linear-gradient(180deg, rgba(255, 251, 231, 0.98), rgba(255, 245, 208, 0.98));
 }
 
-[id^="pm-widget-sorloths-vm-reise"] .pmwv-info-grid {
+[id^="pm-widget-fosningen-vm-reise"] .pmwv-info-grid {
   grid-template-columns: 1fr;
 }
 
-[id^="pm-widget-sorloths-vm-reise"] .pmwv-info-card {
+[id^="pm-widget-fosningen-vm-reise"].pmwv-is-fullscreen {
+  width: 100%;
+  max-width: none;
+  min-height: 100dvh;
+  padding: 0;
+  background: #eef3f8;
+}
+
+[id^="pm-widget-fosningen-vm-reise"].pmwv-is-fullscreen .pmwv-info-grid {
+  display: none;
+}
+
+[id^="pm-widget-fosningen-vm-reise"] .pmwv-game-card.pmwv-is-fullscreen-target {
+  min-height: 100dvh;
+  border-radius: 0;
+  border: 0;
+  box-shadow: none;
+  display: flex;
+  flex-direction: column;
+}
+
+[id^="pm-widget-fosningen-vm-reise"].pmwv-is-fullscreen .pmwv-game-toolbar {
+  padding: 0.85rem 0.85rem 0 0.85rem;
+}
+
+[id^="pm-widget-fosningen-vm-reise"].pmwv-is-fullscreen .pmwv-route-copy-inline {
+  padding-bottom: 0.35rem;
+}
+
+[id^="pm-widget-fosningen-vm-reise"].pmwv-is-fullscreen .pmwv-fact-box {
+  top: 3.9rem;
+}
+
+[id^="pm-widget-fosningen-vm-reise"].pmwv-is-fullscreen .pmwv-canvas-shell {
+  flex: 1 1 auto;
+  min-height: 0;
+  padding: 5.8rem 0.6rem 0.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+[id^="pm-widget-fosningen-vm-reise"] .pmwv-info-card {
   min-height: 100%;
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(248, 250, 253, 0.96));
 }
 
-[id^="pm-widget-sorloths-vm-reise"] .pmwv-info-card p {
+[id^="pm-widget-fosningen-vm-reise"] .pmwv-info-card p {
   margin: 0;
 }
 
 @media (min-width: 700px) {
-  [id^="pm-widget-sorloths-vm-reise"] .pmwv-dek-shell {
+  [id^="pm-widget-fosningen-vm-reise"] .pmwv-dek-shell {
     flex-direction: row;
     justify-content: center;
     align-items: center;
   }
 
-  [id^="pm-widget-sorloths-vm-reise"] .pmwv-hud {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-
-  [id^="pm-widget-sorloths-vm-reise"] .pmwv-info-grid {
+  [id^="pm-widget-fosningen-vm-reise"] .pmwv-info-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 
 @media (max-width: 520px) {
-  [id^="pm-widget-sorloths-vm-reise"] .pmwv-progress-stops {
+  [id^="pm-widget-fosningen-vm-reise"] .pmwv-game-toolbar {
+    flex-direction: column;
+  }
+
+  [id^="pm-widget-fosningen-vm-reise"] .pmwv-progress-stops {
     font-size: 0.76rem;
   }
 
-  [id^="pm-widget-sorloths-vm-reise"] .pmwv-milestone-box {
-    top: 5.2rem;
-    font-size: 0.86rem;
-  }
-
-  [id^="pm-widget-sorloths-vm-reise"] .pmwv-canvas-shell {
-    padding-top: 6.8rem;
+  [id^="pm-widget-fosningen-vm-reise"] .pmwv-canvas-shell {
+    padding-top: 7.3rem;
   }
 }

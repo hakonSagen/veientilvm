@@ -1,6 +1,6 @@
-# Sørloths VM-reise
+# Kommer fosningen til VM?
 
-Et enkelt, mobilvennlig HTML5-spill laget for Fosna-Folket i forbindelse med fotball-VM 2026.
+Et enkelt, mobilvennlig HTML5-spill laget for Fosna-Folket om en lokal fotballreise fra Fosen til VM.
 
 ## Lokalt
 

@@ -1,65 +1,35 @@
 <link rel="stylesheet" href="styles.css" />
 
 <section
-  id="pm-widget-sorloths-vm-reise"
-  data-widget="sorloths-vm-reise"
-  aria-label="Sørloths VM-reise"
+  id="pm-widget-fosningen-vm-reise"
+  data-widget="fosningen-vm-reise"
+  aria-label="Kommer fosningen til VM?"
   tabindex="0"
 >
-  <header class="pmwv-hero">
-    <p class="pmwv-kicker">Fosna-Folket presenterer</p>
-    <h2 class="pmwv-title">Sørloths VM-reise</h2>
-    <div class="pmwv-dek-shell">
-      <p class="pmwv-tagline">
-        Hopp over hindringer, plukk bonusobjekter og få Sørloth hele veien fra Fosen til VM 2026 i USA, Canada og Mexico.
-      </p>
-      <p class="pmwv-stamp">VM-spesial</p>
-    </div>
-  </header>
-
-  <section class="pmwv-hud" aria-label="Spillstatus">
-    <article class="pmwv-hud-card">
-      <span class="pmwv-label">Kilometer</span>
-      <strong data-role="km-count" aria-live="polite">0 km</strong>
-    </article>
-    <article class="pmwv-hud-card">
-      <span class="pmwv-label">Målpoeng</span>
-      <strong data-role="score-count" aria-live="polite">0</strong>
-    </article>
-    <article class="pmwv-hud-card">
-      <span class="pmwv-label">Fart</span>
-      <strong data-role="speed-count" aria-live="polite">1,0x</strong>
-    </article>
-  </section>
-
-  <section class="pmwv-progress-panel" aria-label="Reiseframdrift">
-    <p class="pmwv-route-copy" data-role="route-copy" aria-live="polite">
-      Du har kommet 0 km. Det er 6 500 km igjen til VM 2026 i USA, Canada og Mexico.
-    </p>
-    <div class="pmwv-progress-track" aria-hidden="true">
-      <div class="pmwv-progress-fill" data-role="progress-fill"></div>
-    </div>
-    <div class="pmwv-progress-stops" aria-hidden="true">
-      <span>Rissa</span>
-      <span>Trondheim</span>
-      <span>Island</span>
-      <span>New York</span>
-      <span>VM 2026</span>
-    </div>
-  </section>
-
   <section class="pmwv-game-card">
-    <p class="pmwv-fact-box" data-role="fact-box" aria-live="polite">
-      Alexander Sørloth er fra Trøndelag.
+    <div class="pmwv-game-toolbar" aria-label="Spillvalg">
+      <section class="pmwv-hud" aria-label="Spillstatus">
+        <article class="pmwv-hud-card">
+          <span class="pmwv-label">Kilometer</span>
+          <strong data-role="km-count" aria-live="polite">0 km</strong>
+        </article>
+        <article class="pmwv-hud-card">
+          <span class="pmwv-label">Poeng</span>
+          <strong data-role="score-count" aria-live="polite">0</strong>
+        </article>
+      </section>
+      <button type="button" class="pmwv-button pmwv-button-secondary pmwv-fullscreen-button" data-role="fullscreen-button">
+        Fullskjerm
+      </button>
+    </div>
+
+    <p class="pmwv-route-copy pmwv-route-copy-inline" data-role="route-copy" aria-live="polite">
+      Du har kommet 0 km. Det er 6 500 km igjen til VM.
     </p>
-    <section class="pmwv-milestone-box pmwv-hidden" data-role="milestone-box" aria-live="polite" aria-label="Milepæl">
-      <div class="pmwv-milestone-media pmwv-hidden" data-role="milestone-media" aria-hidden="true"></div>
-      <div class="pmwv-milestone-copy">
-        <p class="pmwv-milestone-kicker" data-role="milestone-kicker">Milepæl</p>
-        <h3 class="pmwv-milestone-title" data-role="milestone-title">Rissa</h3>
-        <p class="pmwv-milestone-text" data-role="milestone-text"></p>
-      </div>
-    </section>
+
+    <p class="pmwv-fact-box" data-role="fact-box" aria-live="polite">
+      Fosen sender Fosningen ut på den store VM-reisa.
+    </p>
 
     <div class="pmwv-canvas-shell">
       <canvas
@@ -67,17 +37,28 @@
         data-role="game-canvas"
         width="960"
         height="540"
-        aria-label="Spillflate for Sørloths VM-reise"
+        aria-label="Spillflate for Kommer fosningen til VM?"
       ></canvas>
     </div>
 
     <div class="pmwv-overlay" data-role="start-overlay">
       <section class="pmwv-overlay-panel">
-        <h3>Klar for VM-jakten?</h3>
-        <p>Trykk, klikk eller bruk mellomrom for å hoppe. Samle VM-baller, billetter, pokaler og bonusobjekter på veien mot Nord-Amerika.</p>
-        <button type="button" class="pmwv-button pmwv-button-primary" data-role="start-button">
-          Start spillet
-        </button>
+        <p class="pmwv-kicker pmwv-overlay-kicker">Fosna-Folket presenterer</p>
+        <h3>Kommer fosningen til VM?</h3>
+        <p>Fosningen løper av seg selv. Du trenger bare å hoppe, samle bonuser og holde kursen hele veien mot VM.</p>
+        <ul class="pmwv-start-list">
+          <li>Trykk, klikk eller bruk mellomrom for å hoppe</li>
+          <li>Unngå noen få tydelige hindringer</li>
+          <li>Samle nok kilometer til å nå VM</li>
+        </ul>
+        <div class="pmwv-overlay-actions">
+          <button type="button" class="pmwv-button pmwv-button-primary" data-role="start-button">
+            Start spillet
+          </button>
+          <button type="button" class="pmwv-button pmwv-button-secondary" data-role="start-fullscreen-button">
+            Start i fullskjerm
+          </button>
+        </div>
       </section>
     </div>
 
@@ -96,21 +77,6 @@
         </div>
       </section>
     </div>
-  </section>
-
-  <section class="pmwv-info-grid" aria-label="Spillinformasjon">
-    <article class="pmwv-info-card">
-      <h3>Slik spiller du</h3>
-      <p>Trykk eller bruk mellomrom for å hoppe. Sørloth løper automatisk framover hele tiden.</p>
-    </article>
-    <article class="pmwv-info-card">
-      <h3>Lokal reise</h3>
-      <p>Du starter i Rissa, suser forbi lokale Fosen-miljø og krysser Atlanteren mot VM 2026 i Nord-Amerika.</p>
-    </article>
-    <article class="pmwv-info-card">
-      <h3>Kort og gøy</h3>
-      <p>Korte runder, lav terskel og full VM-stemning både på mobil og i nettavisa.</p>
-    </article>
   </section>
 </section>
 

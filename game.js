@@ -1,337 +1,205 @@
 (() => {
-  const WIDGET_SELECTOR = '[id^="pm-widget-sorloths-vm-reise"]';
+  const WIDGET_SELECTOR = '[id^="pm-widget-fosningen-vm-reise"]';
   const WIDGET_CONFIG = {
     totalDistance: 6500,
-    baseSpeed: 2.2,
-    maxSpeed: 3.25,
-    speedGrowth: 0.000035,
-    distanceFactor: 0.78,
+    baseSpeed: 1.95,
+    maxSpeed: 2.45,
+    speedGrowth: 0.000018,
+    distanceFactor: 0.72,
     gravity: 0.72,
-    jumpPower: -13.2,
+    jumpPower: -15.2,
     groundY: 420,
+    finalTokensRequired: 1,
     facts: [
-      "Alexander Sørloth fra Trøndelag er på vei mot VM 2026.",
-      "VM 2026 spilles i USA, Canada og Mexico.",
-      "Hele Fosen sender Sørloth videre mot Nord-Amerika.",
-      "Bonusobjekter kan sende Sørloth mange mil nærmere VM.",
+      "Fosningen er på vei mot fotballfesten i 2026.",
+      "Fotballfesten i 2026 spilles i USA, Canada og Mexico.",
+      "Hele Fosen sender Fosningen videre mot Nord-Amerika.",
+      "Bonusobjektene gir kilometer, poeng og litt ekstra medvind.",
     ],
     milestones: [
       { at: 0, label: "Rissa", stage: "fosen", color: "#4b8f4b" },
-      { at: 500, label: "Brekstad", stage: "fosen", color: "#4b8f4b" },
-      { at: 1200, label: "Trondheim", stage: "city", color: "#d17a22" },
-      { at: 2400, label: "Norskehavet", stage: "ocean", color: "#2d7fb8" },
-      { at: 3400, label: "Island", stage: "island", color: "#6f83c0" },
-      { at: 4300, label: "Grønland", stage: "ice", color: "#7db8c6" },
+      { at: 900, label: "Brekstad", stage: "fosen", color: "#4b8f4b" },
+      { at: 1800, label: "Norskehavet", stage: "ocean", color: "#2d7fb8" },
+      { at: 3200, label: "Island", stage: "island", color: "#6f83c0" },
+      { at: 4200, label: "Grønland", stage: "ice", color: "#7db8c6" },
       { at: 5100, label: "Newfoundland", stage: "canada", color: "#5e87b7" },
       { at: 5850, label: "New York", stage: "usa", color: "#7c4dff" },
-      { at: 6500, label: "VM 2026", stage: "finale", color: "#d62828" },
+      { at: 6500, label: "VM", stage: "finale", color: "#d62828" },
     ],
     pickupTypes: [
       {
-        type: "ball",
-        label: "VM-ball",
-        value: 52,
-        score: 42,
+        type: "coin",
+        label: "Gullmynt",
+        value: 60,
+        score: 50,
         rarity: 8,
-        minY: 0,
-        maxY: 58,
+        minY: 6,
+        maxY: 70,
         stages: ["all"],
-        message: "VM-ballen sender Sørloth videre!",
+        message: "Gullmynt plukket opp. Reisen ruller videre.",
       },
       {
-        type: "flag",
-        label: "Norsk flagg",
-        value: 58,
-        score: 48,
+        type: "ball",
+        label: "Fotball",
+        value: 78,
+        score: 64,
         rarity: 6,
         minY: 12,
         maxY: 82,
         stages: ["all"],
-        message: "Hele Fosen heier Sørloth fram!",
-      },
-      {
-        type: "ticket",
-        label: "VM-billett",
-        value: 72,
-        score: 60,
-        rarity: 5,
-        minY: 12,
-        maxY: 84,
-        stages: ["all"],
-        message: "Sørloth har flybilletten klar!",
-      },
-      {
-        type: "passport",
-        label: "Pass",
-        value: 68,
-        score: 64,
-        rarity: 5,
-        minY: 18,
-        maxY: 88,
-        stages: ["all"],
-        message: "Passkontrollen er i boks.",
-      },
-      {
-        type: "map",
-        label: "Rutekart",
-        value: 84,
-        score: 62,
-        rarity: 4,
-        minY: 20,
-        maxY: 80,
-        stages: ["all"],
-        message: "Ruta fra Fosen til VM er spikret.",
-      },
-      {
-        type: "statue",
-        label: "Mini-Frihetsgudinne",
-        value: 88,
-        score: 72,
-        rarity: 4,
-        minY: 18,
-        maxY: 82,
-        stages: ["america", "finale", "usa", "canada"],
-        message: "New York vinker fra horisonten!",
-      },
-      {
-        type: "hotdog",
-        label: "Hotdog",
-        value: 64,
-        score: 56,
-        rarity: 4,
-        minY: 24,
-        maxY: 90,
-        stages: ["america", "usa", "finale"],
-        message: "Hotdog i hånda og VM i siktet.",
-      },
-      {
-        type: "pretzel",
-        label: "pretzel",
-        value: 60,
-        score: 55,
-        rarity: 4,
-        minY: 20,
-        maxY: 90,
-        stages: ["america", "usa", "finale"],
-        message: "Pretzel plukket opp. Sørloth durer videre.",
+        message: "Fotballen sender Fosningen videre!",
       },
       {
         type: "trophy",
-        label: "VM-pokal",
-        value: 135,
-        score: 120,
+        label: "Pokal",
+        value: 160,
+        score: 130,
         rarity: 3,
-        minY: 6,
-        maxY: 72,
-        stages: ["all"],
-        message: "VM-pokal plukket opp. Nå lukter det mål!",
-      },
-      {
-        type: "rocket",
-        label: "Rakettbonus",
-        value: 500,
-        score: 150,
-        rarity: 2,
-        minY: 12,
+        minY: 8,
         maxY: 68,
         stages: ["all"],
-        message: "Rakett aktivert! 500 km ekstra.",
+        message: "Pokal plukket opp. Nå lukter det alvor!",
+        finalToken: true,
       },
       {
-        type: "stadium",
-        label: "VM-stadion",
-        value: 180,
-        score: 140,
-        rarity: 2,
-        minY: 12,
+        type: "sodd",
+        label: "Sodd",
+        value: 110,
+        score: 92,
+        rarity: 4,
+        minY: 14,
         maxY: 78,
-        stages: ["canada", "usa", "finale"],
-        message: "VM-stadion i sikte!",
-        finalToken: true,
-      },
-      {
-        type: "directFlight",
-        label: "Direktefly",
-        value: 260,
-        score: 135,
-        rarity: 2,
-        minY: 16,
-        maxY: 64,
-        stages: ["ocean", "island", "ice", "america", "finale"],
-        message: "Direktefly aktivert!",
-      },
-      {
-        type: "hattrick",
-        label: "Hat-trick-bonus",
-        value: 210,
-        score: 180,
-        rarity: 1,
-        minY: 8,
-        maxY: 56,
-        stages: ["city", "america", "finale"],
-        message: "Hat-trick-bonus! Nå går det unna!",
-        finalToken: true,
-      },
-      {
-        type: "jersey",
-        label: "landslagstrøye",
-        value: 155,
-        score: 132,
-        rarity: 2,
-        minY: 12,
-        maxY: 70,
         stages: ["all"],
-        message: "Landslagstrøya blafrer videre.",
-        finalToken: true,
+        message: "Ei skål sodd gir ny kraft i beina.",
       },
     ],
     obstacleTypes: [
       {
-        type: "raincloud",
-        label: "trøndersk regnsky",
-        width: 86,
-        height: 52,
-        y: 244,
-        rarity: 4,
-        stages: ["fosen", "city"],
-        message: "Oi! Sørloth traff en trøndersk regnsky.",
-        hitbox: { x: 10, y: 10, width: 64, height: 24 },
-      },
-      {
-        type: "wave",
-        label: "atlanterhavsbølge",
-        width: 92,
-        height: 34,
-        y: 386,
-        rarity: 6,
+        type: "seamonster",
+        label: "sjømonster",
+        width: 124,
+        height: 102,
+        y: 318,
+        rarity: 3,
         stages: ["ocean", "island", "ice"],
-        message: "Atlanterhavsbølga satte inn for fullt.",
-        hitbox: { x: 8, y: 10, width: 74, height: 18 },
-      },
-      {
-        type: "roadwork",
-        label: "veiarbeid",
-        width: 74,
-        height: 58,
-        y: 362,
-        rarity: 5,
-        stages: ["fosen", "city"],
-        message: "Veiarbeid på Fosen satte en stopper.",
-        hitbox: { x: 8, y: 18, width: 58, height: 30 },
+        message: "Et sjømonster dukket opp fra dypet.",
+        hitbox: { x: 26, y: 24, width: 68, height: 58 },
       },
       {
         type: "gull",
         label: "sint måke",
-        width: 64,
-        height: 38,
-        y: 252,
+        width: 84,
+        height: 46,
+        y: 244,
         rarity: 5,
         stages: ["fosen", "ocean"],
-        message: "Oi! Sørloth traff en sint måke.",
-        hitbox: { x: 8, y: 8, width: 48, height: 18 },
+        message: "Oi! Fosningen traff en sint måke.",
+        hitbox: { x: 10, y: 10, width: 60, height: 22 },
       },
       {
-        type: "suitcase",
-        label: "mistet koffert",
-        width: 54,
-        height: 44,
-        y: 376,
-        rarity: 4,
-        stages: ["city", "ocean", "canada", "usa"],
-        message: "Den mistede kofferten havnet midt i løypa.",
-        hitbox: { x: 6, y: 10, width: 42, height: 28 },
+        type: "penguin",
+        label: "forvilla pingvin",
+        width: 84,
+        height: 94,
+        y: 326,
+        rarity: 3,
+        stages: ["ice", "canada"],
+        message: "En forvilla pingvin sto midt i løypa.",
+        hitbox: { x: 18, y: 20, width: 46, height: 62 },
       },
       {
         type: "ferry",
-        label: "ferje",
-        width: 90,
-        height: 42,
-        y: 378,
-        rarity: 3,
+        label: "ferge",
+        width: 148,
+        height: 92,
+        y: 328,
+        rarity: 2,
         stages: ["fosen", "ocean"],
-        message: "Ferja gikk akkurat.",
-        hitbox: { x: 8, y: 12, width: 72, height: 20 },
+        message: "Ferga sperret hele leia.",
+        hitbox: { x: 12, y: 28, width: 122, height: 40 },
       },
       {
         type: "defender",
         label: "forsvarsspiller",
-        width: 66,
-        height: 80,
-        y: 340,
+        width: 76,
+        height: 92,
+        y: 328,
         rarity: 3,
-        stages: ["city", "usa", "finale"],
+        stages: ["usa", "finale"],
         message: "Forsvareren satte inn en sklitakling.",
-        hitbox: { x: 10, y: 26, width: 42, height: 44 },
+        hitbox: { x: 12, y: 30, width: 48, height: 48 },
       },
       {
         type: "redcard",
         label: "rødt kort",
-        width: 34,
-        height: 58,
-        y: 350,
+        width: 92,
+        height: 108,
+        y: 312,
         rarity: 3,
-        stages: ["city", "usa", "finale"],
-        message: "Dommeren dro rett opp det rode kortet.",
-        hitbox: { x: 6, y: 10, width: 22, height: 34 },
+        stages: ["usa", "finale"],
+        message: "Dommeren dro rett opp det røde kortet.",
+        hitbox: { x: 22, y: 10, width: 44, height: 86 },
       },
       {
         type: "yellowcard",
         label: "gult kort",
-        width: 34,
-        height: 58,
-        y: 350,
+        width: 92,
+        height: 108,
+        y: 312,
         rarity: 3,
-        stages: ["city", "usa", "finale"],
+        stages: ["usa", "finale"],
         message: "Gult kort og full stopp.",
-        hitbox: { x: 6, y: 10, width: 22, height: 34 },
-      },
-      {
-        type: "thunder",
-        label: "tordenvær",
-        width: 72,
-        height: 72,
-        y: 238,
-        rarity: 3,
-        stages: ["ocean", "island", "ice"],
-        message: "Tordenvaeret over Atlanteren ble for voldsomt.",
-        hitbox: { x: 16, y: 18, width: 36, height: 36 },
+        hitbox: { x: 22, y: 10, width: 44, height: 86 },
       },
       {
         type: "tractor",
         label: "traktor",
-        width: 78,
-        height: 52,
-        y: 368,
+        width: 116,
+        height: 82,
+        y: 338,
         rarity: 3,
         stages: ["fosen"],
         message: "Traktoren tok hele fylkesveien.",
-        hitbox: { x: 8, y: 12, width: 62, height: 30 },
+        hitbox: { x: 12, y: 20, width: 92, height: 44 },
       },
       {
         type: "goalkeeper",
         label: "VM-målvakt",
-        width: 74,
-        height: 64,
-        y: 356,
+        width: 88,
+        height: 78,
+        y: 342,
         rarity: 3,
         stages: ["finale"],
         message: "VM-målvakta stengte buret.",
-        hitbox: { x: 8, y: 18, width: 56, height: 30 },
+        hitbox: { x: 10, y: 20, width: 64, height: 36 },
       },
     ],
   };
 
   const ASSET_PATHS = {
-    playerIdle: "Grafikk/sorloth_sprite_pack_safe_v2/sorloth_idle.png",
-    playerRunA: "Grafikk/sorloth_sprite_pack_safe_v2/sorloth_run1.png",
-    playerRunB: "Grafikk/sorloth_sprite_pack_safe_v2/sorloth_run2.png",
-    playerRunC: "Grafikk/sorloth_sprite_pack_safe_v2/sorloth_run3.png",
-    playerJump: "Grafikk/sorloth_sprite_pack_safe_v2/sorloth_jump.png",
-    playerWin: "Grafikk/sorloth_sprite_pack_safe_v2/sorloth_trophy.png",
+    playerIdle: "Grafikk/Fosningen/ChatGPT Image 7. juni 2026, 21_29_26.png",
+    playerRunA: "Grafikk/Fosningen/ChatGPT Image 7. juni 2026, 21_47_22.png",
+    playerRunB: "Grafikk/Fosningen/ChatGPT Image 7. juni 2026, 21_48_29.png",
+    playerRunC: "Grafikk/Fosningen/ChatGPT Image 7. juni 2026, 21_50_13.png",
+    playerJump: "Grafikk/Fosningen/ChatGPT Image 7. juni 2026, 21_35_50.png",
+    playerHurt: "Grafikk/Fosningen/Skadet.png",
+    playerStopped: "Grafikk/Fosningen/Stoppet.png",
+    playerWin: "Grafikk/Fosningen/figur_feirer_uten_bakgrunn.png",
+    bonusCoin: "Grafikk/Bonuser/ChatGPT Image 7. juni 2026, 22_11_33.png",
+    bonusBall: "Grafikk/Bonuser/ChatGPT Image 7. juni 2026, 22_12_46.png",
+    bonusTrophy: "Grafikk/Bonuser/ChatGPT Image 7. juni 2026, 22_18_27.png",
+    bonusSoup: "Grafikk/Bonuser/ChatGPT Image 7. juni 2026, 22_20_06.png",
     swedeDefend: "Grafikk/swede_separate_originals/swede_defend.png",
     swedeDive: "Grafikk/swede_separate_originals/swede_dive.png",
     swedeSlide: "Grafikk/swede_separate_originals/swede_slide_left_fixed.png",
     swedeStand: "Grafikk/swede_separate_originals/swede_stand_front_fixed.png",
+    hinderGull: "Grafikk/Hindre/ChatGPT Image 3. juni 2026, 08_31_35.png",
+    hinderTractor: "Grafikk/Hindre/ChatGPT Image 3. juni 2026, 21_02_22.png",
+    hinderRedcard: "Grafikk/Hindre/ChatGPT Image 3. juni 2026, 21_06_57.png",
+    hinderYellowcard: "Grafikk/Hindre/ChatGPT Image 3. juni 2026, 21_09_53.png",
+    hinderFerry: "Grafikk/Hindre/ChatGPT Image 3. juni 2026, 21_24_40.png",
+    hinderPenguin: "Grafikk/Hindre/ChatGPT Image 3. juni 2026, 21_21_30.png",
+    hinderSeaSerpent: "Grafikk/Hindre/sea_serpent_mirrored.png",
     austrattBorgen: "Grafikk/fosen_landmarks_hd_simple/austratt_borgen_hd.png",
     alteneset: "Grafikk/fosen_landmarks_hd_simple/alteneset_hd.png",
     fosenBrygge: "Grafikk/fosen_landmarks_hd_simple/fosen_brygge_hd.png",
@@ -345,7 +213,7 @@
     Rissa: {
       kicker: "Fra Fosna-Folket-land",
       title: "Rissa",
-      text: "Avsparket går i Rissa, og nå sender Fosen Sørloth ut på VM-jakt.",
+      text: "Avsparket går i Rissa, og nå sender Fosen Fosningen ut på VM-jakt.",
       imagePath: ASSET_PATHS.reinKloster,
     },
     Brekstad: {
@@ -353,11 +221,6 @@
       title: "Brekstad",
       text: "Brekstad er passert. Nå lukter det storreise og enda større fotballdrømmer.",
       imagePath: ASSET_PATHS.austrattBorgen,
-    },
-    Trondheim: {
-      kicker: "Byen bak ham",
-      title: "Trondheim",
-      text: "Trondheim er unnagjort. Nå peker alt vestover mot havet og VM.",
     },
     Norskehavet: {
       kicker: "Den lange etappen",
@@ -372,7 +235,7 @@
     Grønland: {
       kicker: "Kald milepæl",
       title: "Grønland",
-      text: "Det er kaldt, langt og krevende, men Sørloth holder stø kurs mot mesterskapet.",
+      text: "Det er kaldt, langt og krevende, men Fosningen holder stø kurs mot VM.",
     },
     Newfoundland: {
       kicker: "Nesten framme",
@@ -384,10 +247,10 @@
       title: "New York",
       text: "New York er passert. Nå er det bare innspurten igjen før VM-alvoret starter.",
     },
-    "VM 2026": {
+    VM: {
       kicker: "Alt står på spill",
-      title: "VM 2026",
-      text: "Nå gjelder det. Ett siste rykk, så kan Sørloth spille om hele VM-pokalen.",
+      title: "VM",
+      text: "Nå gjelder det. Ett siste rykk, så er Fosningen VM-klar.",
     },
   };
 
@@ -446,16 +309,13 @@
   }
 
   function stageForDistance(distance) {
-    if (distance < 900) {
+    if (distance < 1500) {
       return "fosen";
     }
-    if (distance < 2200) {
-      return "city";
-    }
-    if (distance < 3300) {
+    if (distance < 3200) {
       return "ocean";
     }
-    if (distance < 4300) {
+    if (distance < 4200) {
       return "island";
     }
     if (distance < 5000) {
@@ -584,7 +444,68 @@
       }
 
       context.putImageData(imageData, 0, 0);
-      return canvas;
+      return trimTransparentCanvas(canvas) || canvas;
+    } catch {
+      return null;
+    }
+  }
+
+  function trimTransparentCanvas(sourceCanvas) {
+    try {
+      if (!sourceCanvas || !sourceCanvas.width || !sourceCanvas.height) {
+        return null;
+      }
+
+      const sourceContext = sourceCanvas.getContext("2d");
+      if (!sourceContext) {
+        return null;
+      }
+
+      const { width, height } = sourceCanvas;
+      const imageData = sourceContext.getImageData(0, 0, width, height);
+      const data = imageData.data;
+      let minX = width;
+      let minY = height;
+      let maxX = -1;
+      let maxY = -1;
+
+      for (let y = 0; y < height; y += 1) {
+        for (let x = 0; x < width; x += 1) {
+          const alpha = data[(y * width + x) * 4 + 3];
+          if (alpha > 0) {
+            minX = Math.min(minX, x);
+            minY = Math.min(minY, y);
+            maxX = Math.max(maxX, x);
+            maxY = Math.max(maxY, y);
+          }
+        }
+      }
+
+      if (maxX < minX || maxY < minY) {
+        return null;
+      }
+
+      const trimmedCanvas = document.createElement("canvas");
+      trimmedCanvas.width = maxX - minX + 1;
+      trimmedCanvas.height = maxY - minY + 1;
+      const trimmedContext = trimmedCanvas.getContext("2d");
+      if (!trimmedContext) {
+        return null;
+      }
+
+      trimmedContext.drawImage(
+        sourceCanvas,
+        minX,
+        minY,
+        trimmedCanvas.width,
+        trimmedCanvas.height,
+        0,
+        0,
+        trimmedCanvas.width,
+        trimmedCanvas.height
+      );
+
+      return trimmedCanvas;
     } catch {
       return null;
     }
@@ -597,8 +518,8 @@
     }
 
     root.dataset.widgetReady = "true";
-    if (widgetIndex > 0 || !root.id || !root.id.startsWith("pm-widget-sorloths-vm-reise")) {
-      root.id = widgetIndex === 0 ? "pm-widget-sorloths-vm-reise" : `pm-widget-sorloths-vm-reise-${widgetIndex + 1}`;
+    if (widgetIndex > 0 || !root.id || !root.id.startsWith("pm-widget-fosningen-vm-reise")) {
+      root.id = widgetIndex === 0 ? "pm-widget-fosningen-vm-reise" : `pm-widget-fosningen-vm-reise-${widgetIndex + 1}`;
     }
 
     const elements = {
@@ -613,14 +534,18 @@
       milestoneKicker: root.querySelector('[data-role="milestone-kicker"]'),
       milestoneTitle: root.querySelector('[data-role="milestone-title"]'),
       milestoneText: root.querySelector('[data-role="milestone-text"]'),
+      canvasShell: root.querySelector('.pmwv-canvas-shell'),
       canvas: root.querySelector('[data-role="game-canvas"]'),
       startOverlay: root.querySelector('[data-role="start-overlay"]'),
       gameOverOverlay: root.querySelector('[data-role="game-over-overlay"]'),
+      gameCard: root.querySelector('.pmwv-game-card'),
       gameOverPanel: root.querySelector('[data-role="game-over-panel"]'),
       gameOverTitle: root.querySelector('[data-role="game-over-title"]'),
       gameOverText: root.querySelector('[data-role="game-over-text"]'),
       victoryBanner: root.querySelector('[data-role="victory-banner"]'),
       startButton: root.querySelector('[data-role="start-button"]'),
+      startFullscreenButton: root.querySelector('[data-role="start-fullscreen-button"]'),
+      fullscreenButton: root.querySelector('[data-role="fullscreen-button"]'),
       restartButton: root.querySelector('[data-role="restart-button"]'),
       shareButton: root.querySelector('[data-role="share-button"]'),
     };
@@ -640,11 +565,24 @@
       playerRunB: createImageAsset(ASSET_PATHS.playerRunB),
       playerRunC: createImageAsset(ASSET_PATHS.playerRunC),
       playerJump: createImageAsset(ASSET_PATHS.playerJump),
+      playerHurt: createImageAsset(ASSET_PATHS.playerHurt),
+      playerStopped: createImageAsset(ASSET_PATHS.playerStopped),
       playerWin: createImageAsset(ASSET_PATHS.playerWin),
+      bonusCoin: createImageAsset(ASSET_PATHS.bonusCoin),
+      bonusBall: createImageAsset(ASSET_PATHS.bonusBall),
+      bonusTrophy: createImageAsset(ASSET_PATHS.bonusTrophy),
+      bonusSoup: createImageAsset(ASSET_PATHS.bonusSoup),
       swedeDefend: createImageAsset(ASSET_PATHS.swedeDefend),
       swedeDive: createImageAsset(ASSET_PATHS.swedeDive),
       swedeSlide: createImageAsset(ASSET_PATHS.swedeSlide),
       swedeStand: createImageAsset(ASSET_PATHS.swedeStand),
+      hinderGull: createImageAsset(ASSET_PATHS.hinderGull),
+      hinderTractor: createImageAsset(ASSET_PATHS.hinderTractor),
+      hinderRedcard: createImageAsset(ASSET_PATHS.hinderRedcard),
+      hinderYellowcard: createImageAsset(ASSET_PATHS.hinderYellowcard),
+      hinderFerry: createImageAsset(ASSET_PATHS.hinderFerry),
+      hinderPenguin: createImageAsset(ASSET_PATHS.hinderPenguin),
+      hinderSeaSerpent: createImageAsset(ASSET_PATHS.hinderSeaSerpent),
       austrattBorgen: createImageAsset(ASSET_PATHS.austrattBorgen),
       alteneset: createImageAsset(ASSET_PATHS.alteneset),
       fosenBrygge: createImageAsset(ASSET_PATHS.fosenBrygge),
@@ -671,13 +609,14 @@
       milestoneIndex: 0,
       backgroundShift: 0,
       crashMessage: "",
+      crashPose: "stopped",
       lastPickupMessage: WIDGET_CONFIG.facts[0],
       finalTokensCollected: 0,
       player: {
-        x: 92,
+        x: 72,
         y: 0,
-        width: 86,
-        height: 114,
+        width: 112,
+        height: 116,
         vy: 0,
         jumping: false,
       },
@@ -692,8 +631,21 @@
     };
 
     function updateCanvasSize() {
-      const width = Math.max(320, Math.min(980, Math.floor(root.clientWidth - 2)));
-      const height = Math.floor(width * 0.5625);
+      const shell = elements.canvasShell || root;
+      const isFullscreen = root.classList.contains("pmwv-is-fullscreen");
+      const availableWidth = Math.max(320, Math.floor((shell.clientWidth || root.clientWidth) - 2));
+
+      let width = Math.min(980, availableWidth);
+      let height = Math.floor(width * 0.5625);
+
+      if (isFullscreen && shell.clientHeight > 0) {
+        const maxHeight = Math.max(240, Math.floor(shell.clientHeight - 6));
+        if (height > maxHeight) {
+          height = maxHeight;
+          width = Math.floor(height / 0.5625);
+        }
+      }
+
       elements.canvas.width = width;
       elements.canvas.height = height;
     }
@@ -709,6 +661,9 @@
     }
 
     function showMilestoneToast(payload) {
+      if (!elements.milestoneBox) {
+        return;
+      }
       const fallbackText = typeof payload === "string" ? payload : payload?.text || "";
       const card = typeof payload === "string" ? null : payload;
       state.milestoneToast.text = fallbackText;
@@ -765,10 +720,10 @@
       if (elements.routeCopy) {
         const finaleCopy =
           currentStage() === "finale"
-            ? ` Finaleutfordring: ${state.finalTokensCollected} av 3 VM-symboler.`
+            ? ` Finaleutfordring: ${state.finalTokensCollected} av ${WIDGET_CONFIG.finalTokensRequired} VM-symboler.`
             : "";
         elements.routeCopy.textContent =
-          `Du har kommet ${formatNumber(travelled)} km. Det er ${formatNumber(remaining)} km igjen til VM 2026 i USA, Canada og Mexico.` +
+          `Du har kommet ${formatNumber(travelled)} km. Det er ${formatNumber(remaining)} km igjen til VM.` +
           finaleCopy;
       }
       if (elements.progressFill) {
@@ -790,6 +745,7 @@
       state.milestoneIndex = 0;
       state.backgroundShift = 0;
       state.crashMessage = "";
+      state.crashPose = "stopped";
       state.lastPickupMessage = WIDGET_CONFIG.facts[0];
       state.finalTokensCollected = 0;
       state.obstacles = [];
@@ -825,13 +781,28 @@
       state.player.jumping = true;
     }
 
+    function stageObstacleTypes(stage) {
+      const simplified = {
+        fosen: ["tractor", "gull", "ferry"],
+        ocean: ["gull", "seamonster", "ferry"],
+        island: ["seamonster"],
+        ice: ["seamonster", "penguin"],
+        canada: ["defender", "penguin"],
+        usa: ["defender", "redcard"],
+        finale: ["goalkeeper", "defender"],
+      };
+      return simplified[stage] || [];
+    }
+
     function spawnObstacle() {
-      if (state.obstacles.some((obstacle) => obstacle.x > elements.canvas.width - 240)) {
+      if (state.obstacles.some((obstacle) => obstacle.x > elements.canvas.width - 300)) {
         return;
       }
       const stage = currentStage();
       const variants = WIDGET_CONFIG.obstacleTypes.filter(
-        (entry) => entry.stages.includes("all") || entry.stages.includes(stage)
+        (entry) =>
+          (entry.stages.includes("all") || entry.stages.includes(stage)) &&
+          stageObstacleTypes(stage).includes(entry.type)
       );
       const chosen = weightedChoice(variants);
       if (!chosen) {
@@ -852,8 +823,8 @@
       if (!chosen) {
         return;
       }
-      const width = chosen.type === "stadium" ? 58 : chosen.type === "directFlight" ? 54 : 44;
-      const height = chosen.type === "stadium" ? 42 : chosen.type === "directFlight" ? 34 : 44;
+      const width = chosen.type === "trophy" ? 52 : chosen.type === "sodd" ? 50 : 44;
+      const height = chosen.type === "trophy" ? 52 : chosen.type === "sodd" ? 50 : 44;
       const yRange = chosen.maxY - chosen.minY;
       const offsetY = chosen.minY + Math.random() * Math.max(0, yRange);
       state.pickups.push({
@@ -1047,6 +1018,26 @@
       return Math.max(0, Math.min(1, state.distance / WIDGET_CONFIG.totalDistance));
     }
 
+    function environmentBlend() {
+      const distance = state.distance;
+      const landToOcean = Math.max(0, Math.min(1, (distance - 1200) / 650));
+      const oceanToIce = Math.max(0, Math.min(1, (distance - 3300) / 700));
+      const iceToOcean = Math.max(0, Math.min(1, (distance - 4800) / 500));
+      const oceanToAmerica = Math.max(0, Math.min(1, (distance - 5600) / 600));
+
+      const land = 1 - landToOcean;
+      const ice = oceanToIce * (1 - iceToOcean);
+      const ocean = landToOcean * (1 - oceanToIce) + iceToOcean * (1 - oceanToAmerica);
+      const america = oceanToAmerica;
+
+      return {
+        land: Math.max(0, Math.min(1, land)),
+        ocean: Math.max(0, Math.min(1, ocean)),
+        ice: Math.max(0, Math.min(1, ice)),
+        america: Math.max(0, Math.min(1, america)),
+      };
+    }
+
     function stageMoodPalette() {
       const progress = journeyProgress();
       if (progress < 0.3) {
@@ -1142,7 +1133,7 @@
       if (nextMilestone && state.distance >= nextMilestone.at) {
         state.milestoneIndex += 1;
         const remaining = Math.max(0, WIDGET_CONFIG.totalDistance - Math.floor(state.distance));
-        const text = `Sørloth har nådd ${nextMilestone.label}! Bare ${formatNumber(remaining)} km igjen til VM.`;
+        const text = `Fosningen har nådd ${nextMilestone.label}! Bare ${formatNumber(remaining)} km igjen til VM.`;
         setFact(text);
         showMilestoneToast({
           ...(MILESTONE_CARD_CONFIG[nextMilestone.label] || {}),
@@ -1157,24 +1148,30 @@
       state.gameOver = true;
       state.won = won;
 
+      if (!won) {
+        state.player.vy = 0;
+        state.player.jumping = false;
+        state.player.y = WIDGET_CONFIG.groundY - state.player.height;
+      }
+
       if (elements.gameOverTitle) {
-        elements.gameOverTitle.textContent = won ? "Sørloth vant VM!" : "Der sa det stopp";
+        elements.gameOverTitle.textContent = won ? "Fosningen kom til VM!" : "Der sa det stopp";
       }
       if (elements.gameOverText) {
         elements.gameOverText.textContent = won
-          ? `Gratulerer! Du fikk Sørloth helt til topps i VM 2026, og nå løfter han trofeet med sterke ${formatNumber(state.score)} poeng.`
+          ? `Gratulerer! Du fikk Fosningen hele veien til VM med sterke ${formatNumber(state.score)} poeng.`
           : `${state.crashMessage || "Reisen stoppet opp."} Du samlet ${formatNumber(Math.floor(state.distance))} km og ${formatNumber(state.score)} poeng.`;
       }
 
       if (won) {
-        setFact("Sørloth vant VM 2026 og løfter trofeet!");
+        setFact("Fosningen er VM-klar!");
         if (elements.victoryBanner) {
           elements.victoryBanner.classList.remove("pmwv-hidden");
         }
         if (elements.gameOverPanel) {
           elements.gameOverPanel.classList.add("pmwv-victory");
         }
-        showMilestoneToast("Sørloth vant hele VM! Trofeet er sikret.");
+        showMilestoneToast("VM er nådd! Fosningen er klar for den store scenen.");
         launchFireworksBurst();
         launchFireworksBurst();
         launchFireworksBurst();
@@ -1198,11 +1195,11 @@
       state.distance = Math.min(WIDGET_CONFIG.totalDistance, state.distance + pickup.value);
       state.lastPickupMessage = pickup.message;
       setFact(pickup.message);
-      addParticles(pickup.x, pickup.y, pickup.type === "trophy" ? "#ffd166" : "#ffffff", 5, pickup.type === "rocket" ? 18 : 12);
+      addParticles(pickup.x, pickup.y, pickup.type === "trophy" || pickup.type === "coin" ? "#ffd166" : "#ffffff", 5, 12);
 
       if (currentStage() === "finale" && pickup.finalToken) {
         state.finalTokensCollected += 1;
-        showMilestoneToast(`Finale! Samle 3 VM-symboler: ${state.finalTokensCollected} av 3.`);
+        showMilestoneToast(`Finale! Samle ${WIDGET_CONFIG.finalTokensRequired} VM-symboler: ${state.finalTokensCollected} av ${WIDGET_CONFIG.finalTokensRequired}.`);
       }
     }
 
@@ -1210,7 +1207,11 @@
       if (currentStage() !== "finale") {
         return state.distance >= WIDGET_CONFIG.totalDistance;
       }
-      return state.distance >= WIDGET_CONFIG.totalDistance && state.finalTokensCollected >= 3;
+      return state.distance >= WIDGET_CONFIG.totalDistance && state.finalTokensCollected >= WIDGET_CONFIG.finalTokensRequired;
+    }
+
+    function crashPoseForObstacle(obstacleType) {
+      return obstacleType === "gull" || obstacleType === "defender" || obstacleType === "goalkeeper" ? "hurt" : "stopped";
     }
 
     function update(delta) {
@@ -1235,15 +1236,15 @@
       state.obstacleTimer += delta;
       state.pickupTimer += delta;
       const stage = currentStage();
-      const obstacleDelay = stage === "finale" ? 124 : stage === "ocean" ? 142 : 136;
-      const pickupDelay = stage === "finale" ? 54 : 60;
+      const obstacleDelay = stage === "finale" ? 152 : stage === "ocean" ? 168 : 158;
+      const pickupDelay = stage === "finale" ? 48 : 52;
 
-      if (state.obstacleTimer > Math.max(88, obstacleDelay - state.speed * 6.2)) {
+      if (state.obstacleTimer > Math.max(112, obstacleDelay - state.speed * 3.6)) {
         spawnObstacle();
         state.obstacleTimer = 0;
       }
 
-      if (state.pickupTimer > Math.max(30, pickupDelay - state.speed * 4.4)) {
+      if (state.pickupTimer > Math.max(24, pickupDelay - state.speed * 2.2)) {
         spawnPickup();
         state.pickupTimer = 0;
       }
@@ -1280,6 +1281,7 @@
       for (const obstacle of state.obstacles) {
         if (rectsCollide(playerRect, entityCollisionRect(obstacle, "obstacle"))) {
           state.crashMessage = obstacle.message;
+          state.crashPose = crashPoseForObstacle(obstacle.type);
           endGame(false);
           break;
         }
@@ -1296,8 +1298,8 @@
       updateFacts();
       updateHud();
 
-      if (state.distance >= WIDGET_CONFIG.totalDistance && currentStage() === "finale" && state.finalTokensCollected < 3) {
-        setFact(`VM-målvakta venter. Samle ${3 - state.finalTokensCollected} VM-symboler til for å vinne.`);
+      if (state.distance >= WIDGET_CONFIG.totalDistance && currentStage() === "finale" && state.finalTokensCollected < WIDGET_CONFIG.finalTokensRequired) {
+        setFact(`VM-målvakta venter. Samle ${WIDGET_CONFIG.finalTokensRequired - state.finalTokensCollected} VM-symboler til for å vinne.`);
       }
 
       if (canFinishJourney()) {
@@ -1333,30 +1335,40 @@
     }
 
     function drawSeaBand() {
-      const stage = currentStage();
-      const isSeaJourney = stage === "ocean" || stage === "island" || stage === "ice" || stage === "canada";
+      const blend = environmentBlend();
+      const seaStrength = Math.max(blend.ocean, blend.ice * 0.9, blend.america * 0.22);
       const progress = journeyProgress();
-      const seaMain = isSeaJourney ? "#5da9de" : progress > 0.68 ? "#73a9d8" : progress > 0.3 ? "#7bc7f3" : "#83cfff";
-      const seaStripe = isSeaJourney ? "#3f8fc7" : progress > 0.68 ? "#5f92c3" : progress > 0.3 ? "#58afe7" : "#63b9ee";
-      const topY = isSeaJourney ? WIDGET_CONFIG.groundY - 120 : WIDGET_CONFIG.groundY - 44;
+      const seaMain = blend.ice > 0.35 ? "#7db8d6" : seaStrength > 0.35 ? "#5da9de" : progress > 0.68 ? "#73a9d8" : progress > 0.3 ? "#7bc7f3" : "#83cfff";
+      const seaStripe = blend.ice > 0.35 ? "#5f95b5" : seaStrength > 0.35 ? "#3f8fc7" : progress > 0.68 ? "#5f92c3" : progress > 0.3 ? "#58afe7" : "#63b9ee";
+      const topY = Math.round(WIDGET_CONFIG.groundY - (44 + seaStrength * 76));
       ctx.fillStyle = seaMain;
       ctx.fillRect(0, topY, elements.canvas.width, WIDGET_CONFIG.groundY - topY);
       ctx.fillStyle = seaStripe;
-      for (let index = 0; index < (isSeaJourney ? 18 : 16); index += 1) {
+      for (let index = 0; index < (seaStrength > 0.35 ? 18 : 16); index += 1) {
         const x = ((index * 90) - state.backgroundShift * 2.4) % (elements.canvas.width + 100);
-        const y = isSeaJourney ? topY + 22 + ((index % 3) * 18) : WIDGET_CONFIG.groundY - 18;
-        ctx.fillRect(x, y, isSeaJourney ? 58 : 42, 3);
+        const y = seaStrength > 0.35 ? topY + 22 + ((index % 3) * 18) : WIDGET_CONFIG.groundY - 18;
+        ctx.fillRect(x, y, seaStrength > 0.35 ? 58 : 42, 3);
       }
       ctx.fillStyle = "rgba(255,255,255,0.35)";
-      for (let index = 0; index < (isSeaJourney ? 14 : 10); index += 1) {
+      for (let index = 0; index < (seaStrength > 0.35 ? 14 : 10); index += 1) {
         const x = ((index * 130) - state.backgroundShift * 1.2) % (elements.canvas.width + 160);
-        const y = isSeaJourney ? topY + 10 + ((index % 4) * 20) : WIDGET_CONFIG.groundY - 32;
-        ctx.fillRect(x, y, isSeaJourney ? 74 : 58, 2);
+        const y = seaStrength > 0.35 ? topY + 10 + ((index % 4) * 20) : WIDGET_CONFIG.groundY - 32;
+        ctx.fillRect(x, y, seaStrength > 0.35 ? 74 : 58, 2);
       }
-      if (isSeaJourney) {
+      if (seaStrength > 0.15) {
         ctx.fillStyle = "rgba(255,255,255,0.22)";
         ctx.fillRect(0, topY, elements.canvas.width, 4);
       }
+    }
+
+    function drawBackdropLayer(alpha, drawFn, offsetX) {
+      if (alpha <= 0.02) {
+        return;
+      }
+      ctx.save();
+      ctx.globalAlpha = alpha;
+      drawFn(offsetX);
+      ctx.restore();
     }
 
     function drawLocalBackdrop(offsetX) {
@@ -1531,12 +1543,15 @@
       drawSky();
       const progress = journeyProgress();
       const stage = currentStage();
-      const isSeaJourney = stage === "ocean" || stage === "island" || stage === "ice" || stage === "canada";
+      const blend = environmentBlend();
+      const seaStrength = Math.max(blend.ocean, blend.ice * 0.9, blend.america * 0.22);
+      const isSeaJourney = seaStrength > 0.35;
 
       for (let index = -1; index < 3; index += 1) {
         const x = index * elements.canvas.width - shift;
-        drawCloud(x + 110, 72, 1.12, progress > 0.7 ? "rgba(255,236,210,0.92)" : "rgba(255,255,255,0.94)");
-        drawCloud(x + 690, 82, 0.88, progress > 0.7 ? "rgba(255,239,221,0.9)" : "rgba(255,255,255,0.9)");
+        const cloudColor = blend.ice > 0.35 ? "rgba(245, 250, 255, 0.94)" : progress > 0.7 ? "rgba(255,236,210,0.92)" : "rgba(255,255,255,0.94)";
+        drawCloud(x + 110, 72, 1.12, cloudColor);
+        drawCloud(x + 690, 82, 0.88, blend.america > 0.35 ? "rgba(255,239,221,0.9)" : cloudColor);
         if (!isSeaJourney) {
           drawCloud(x + 360, 124, 0.74, progress > 0.7 ? "rgba(255,229,198,0.84)" : "rgba(255,255,255,0.86)");
           drawCloud(x + 520, 54, 0.46, "rgba(255,255,255,0.6)");
@@ -1551,7 +1566,7 @@
       const parallax = ((state.backgroundShift * 0.35) % 280) * -1;
       const nearParallax = ((state.backgroundShift * 0.52) % 240) * -1;
 
-      if (!isSeaJourney) {
+      if (blend.land > 0.1 || blend.america > 0.22) {
         ctx.fillStyle = "rgba(115, 152, 190, 0.55)";
         for (let index = -1; index < 4; index += 1) {
           const baseX = index * 340 + farParallax;
@@ -1563,8 +1578,10 @@
           ctx.fill();
         }
         drawHorizonBlend(WIDGET_CONFIG.groundY - 120, WIDGET_CONFIG.groundY - 44, "rgba(126, 191, 218, 0.18)", "rgba(126, 191, 218, 0)");
-      } else {
-        ctx.fillStyle = stage === "ice" ? "rgba(220, 244, 250, 0.75)" : "rgba(255,255,255,0.2)";
+      }
+
+      if (seaStrength > 0.08) {
+        ctx.fillStyle = blend.ice > 0.35 ? "rgba(220, 244, 250, 0.75)" : "rgba(255,255,255,0.2)";
         for (let index = -1; index < 4; index += 1) {
           const waveX = index * 320 + farParallax;
           ctx.beginPath();
@@ -1579,19 +1596,13 @@
         drawHorizonBlend(WIDGET_CONFIG.groundY - 170, WIDGET_CONFIG.groundY - 96, "rgba(255,255,255,0.18)", "rgba(255,255,255,0)");
       }
 
-      if (stage === "fosen") {
-        drawLocalBackdrop(parallax);
-      } else if (stage === "city") {
-        drawCityBackdrop(parallax);
-      } else if (stage === "ocean" || stage === "island") {
-        drawOceanBackdrop(parallax);
-      } else if (stage === "ice") {
-        drawIceBackdrop(parallax);
-      } else {
-        drawNorthAmericaBackdrop(parallax);
-      }
+      drawBackdropLayer(blend.land * 0.72, drawLocalBackdrop, parallax);
+      drawBackdropLayer(blend.land, drawCityBackdrop, parallax);
+      drawBackdropLayer(blend.ocean, drawOceanBackdrop, parallax);
+      drawBackdropLayer(blend.ice, drawIceBackdrop, parallax);
+      drawBackdropLayer(blend.america, drawNorthAmericaBackdrop, parallax);
 
-      if (!isSeaJourney) {
+      if (blend.land > 0.18 || blend.america > 0.28) {
         ctx.fillStyle = "rgba(40, 86, 44, 0.14)";
         for (let index = -1; index < 5; index += 1) {
           const hedgeX = index * 230 + nearParallax;
@@ -1605,7 +1616,7 @@
       ctx.fillRect(0, WIDGET_CONFIG.groundY, elements.canvas.width, elements.canvas.height - WIDGET_CONFIG.groundY);
       ctx.fillStyle = colorFromRgb(mood.groundTop);
       ctx.fillRect(0, WIDGET_CONFIG.groundY - 34, elements.canvas.width, 34);
-      if (isSeaJourney) {
+      if (seaStrength > 0.35) {
         drawHorizonBlend(WIDGET_CONFIG.groundY - 34, WIDGET_CONFIG.groundY + 8, "rgba(255,255,255,0.2)", "rgba(255,255,255,0)");
       } else {
         drawHorizonBlend(WIDGET_CONFIG.groundY - 48, WIDGET_CONFIG.groundY - 8, "rgba(255,255,255,0.1)", "rgba(255,255,255,0)");
@@ -1638,28 +1649,41 @@
 
     function drawPlayer() {
       const { x, y, width, height } = state.player;
-      const runPhase = state.running ? Math.sin(state.backgroundShift * 0.22) : 0;
-      const lift = state.player.jumping ? -8 : runPhase * 2;
+      const runPhase = state.running ? Math.sin(state.backgroundShift * 0.16) : 0;
+      const isWinning = state.gameOver && state.won;
+      const isCrashed = state.gameOver && !state.won;
+      const lift = state.player.jumping ? -18 : isCrashed ? 0 : runPhase * 1.6;
 
       ctx.save();
       ctx.translate(x, y + lift);
 
-      ctx.fillStyle = "rgba(32, 64, 84, 0.18)";
-      ctx.fillRect(10, height - 6, width - 20, 7);
+      if (!state.player.jumping && !isCrashed) {
+        ctx.fillStyle = "rgba(16, 24, 32, 0.08)";
+        ctx.beginPath();
+        ctx.ellipse(width * 0.48, height - 4, width * 0.24, 5, 0, 0, Math.PI * 2);
+        ctx.fill();
+      }
 
       let sprite = assets.playerIdle;
-      if (state.gameOver && state.won) {
+      if (isWinning) {
         sprite = assets.playerWin;
+      } else if (isCrashed) {
+        const crashSprite = state.crashPose === "hurt" ? assets.playerHurt : assets.playerStopped;
+        sprite = crashSprite.complete && crashSprite.naturalWidth ? crashSprite : assets.playerIdle;
       } else if (state.player.jumping) {
         sprite = assets.playerJump;
       } else if (state.running) {
         const runFrames = [assets.playerRunA, assets.playerRunB, assets.playerRunC];
-        sprite = runFrames[Math.floor((state.backgroundShift / 12) % runFrames.length)] || assets.playerIdle;
+        sprite = runFrames[Math.floor((state.backgroundShift / 22) % runFrames.length)] || assets.playerIdle;
       }
 
       const preparedSprite = getPreparedPlayerSprite(
-        state.gameOver && state.won
+        isWinning
           ? "playerWin"
+          : isCrashed
+            ? state.crashPose === "hurt"
+              ? "playerHurt"
+              : "playerStopped"
           : state.player.jumping
             ? "playerJump"
             : state.running
@@ -1673,11 +1697,39 @@
       );
 
       if (preparedSprite) {
-        const sway = state.player.jumping ? 0.08 : runPhase * 0.025;
-        const scaleX = 1 + Math.abs(runPhase) * 0.02;
-        const scaleY = 1 - Math.abs(runPhase) * 0.02;
-        const drawWidth = state.gameOver && state.won ? width * 1.2 : width * 1.08;
-        const drawHeight = state.gameOver && state.won ? height * 1.26 : height * 1.14;
+        const isJumping = state.player.jumping;
+        const poseName = isWinning
+          ? "playerWin"
+          : isCrashed
+            ? state.crashPose === "hurt"
+              ? "playerHurt"
+              : "playerStopped"
+          : isJumping
+            ? "playerJump"
+            : state.running
+              ? sprite === assets.playerRunA
+                ? "playerRunA"
+                : sprite === assets.playerRunB
+                  ? "playerRunB"
+                  : "playerRunC"
+              : "playerIdle";
+        const poseConfig = {
+          playerIdle: { scale: 1.16, anchorX: 0.5, anchorY: 1, dx: 0, dy: 0, sway: 0.01 },
+          playerRunA: { scale: 1.16, anchorX: 0.5, anchorY: 1, dx: -2, dy: 0, sway: 0.015 },
+          playerRunB: { scale: 1.16, anchorX: 0.5, anchorY: 1, dx: 0, dy: 1, sway: 0.012 },
+          playerRunC: { scale: 1.16, anchorX: 0.5, anchorY: 1, dx: 2, dy: 0, sway: 0.015 },
+          playerJump: { scale: 1.28, anchorX: 0.52, anchorY: 0.96, dx: 0, dy: -8, sway: 0.08 },
+          playerHurt: { scale: 1.12, anchorX: 0.5, anchorY: 1, dx: 0, dy: -2, sway: 0 },
+          playerStopped: { scale: 1.18, anchorX: 0.5, anchorY: 1, dx: 0, dy: 2, sway: 0 },
+          playerWin: { scale: 1.42, anchorX: 0.5, anchorY: 1, dx: 0, dy: -10, sway: -0.08 },
+        }[poseName] || { scale: 1.16, anchorX: 0.5, anchorY: 1, dx: 0, dy: 0, sway: 0.01 };
+        const sway = isWinning || isCrashed ? poseConfig.sway : isJumping ? poseConfig.sway : runPhase * poseConfig.sway;
+        const scaleX = isWinning ? 1.06 : 1;
+        const scaleY = isWinning ? 1.06 : 1;
+        const drawWidth = width * poseConfig.scale;
+        const drawHeight = height * poseConfig.scale;
+        const drawX = -drawWidth * poseConfig.anchorX + poseConfig.dx;
+        const drawY = height - drawHeight * poseConfig.anchorY + poseConfig.dy;
         ctx.translate(width * 0.5, height * 0.5);
         ctx.rotate(sway);
         ctx.scale(scaleX, scaleY);
@@ -1688,8 +1740,8 @@
           0,
           preparedSprite.width || preparedSprite.naturalWidth,
           preparedSprite.height || preparedSprite.naturalHeight,
-          -drawWidth * 0.52,
-          -drawHeight * 0.56,
+          drawX,
+          drawY,
           drawWidth,
           drawHeight
         );
@@ -1903,72 +1955,79 @@
         }
       }
 
-      const obstacleSpriteMap = {
-        raincloud: "raincloud",
-        wave: "wave2",
-        roadwork: "roadwork",
-        gull: "gull",
-        suitcase: "suitcase",
-        ferry: "ferry",
-        redcard: "cards",
-        yellowcard: "cards",
-        thunder: "raincloud",
-        tractor: "tractor",
-      };
-      const spriteName = obstacleSpriteMap[obstacle.type];
-      if (spriteName && drawAtlasSprite(spriteName, 0, 0, obstacle.width, obstacle.height)) {
-        if (obstacle.type === "yellowcard") {
-          ctx.fillStyle = "rgba(255, 207, 51, 0.85)";
-          ctx.fillRect(4, 4, obstacle.width - 10, obstacle.height - 20);
-        } else if (obstacle.type === "redcard") {
-          ctx.fillStyle = "rgba(214, 40, 40, 0.85)";
-          ctx.fillRect(4, 4, obstacle.width - 10, obstacle.height - 20);
-        } else if (obstacle.type === "thunder") {
-          ctx.fillStyle = "#ffcf33";
-          ctx.beginPath();
-          ctx.moveTo(obstacle.width * 0.48, obstacle.height * 0.28);
-          ctx.lineTo(obstacle.width * 0.34, obstacle.height * 0.62);
-          ctx.lineTo(obstacle.width * 0.5, obstacle.height * 0.62);
-          ctx.lineTo(obstacle.width * 0.4, obstacle.height * 0.92);
-          ctx.lineTo(obstacle.width * 0.68, obstacle.height * 0.46);
-          ctx.lineTo(obstacle.width * 0.52, obstacle.height * 0.46);
-          ctx.closePath();
-          ctx.fill();
+      if (obstacle.type === "gull") {
+        const sprite = getPreparedObstacleSprite("hinderGull", assets.hinderGull);
+        if (sprite) {
+          ctx.imageSmoothingEnabled = false;
+          ctx.drawImage(sprite, 0, 0, sprite.width || sprite.naturalWidth, sprite.height || sprite.naturalHeight, 0, 0, obstacle.width, obstacle.height);
+          ctx.restore();
+          return;
         }
-        ctx.restore();
-        return;
+      }
+
+      if (obstacle.type === "tractor") {
+        const sprite = getPreparedObstacleSprite("hinderTractor", assets.hinderTractor);
+        if (sprite) {
+          ctx.imageSmoothingEnabled = false;
+          ctx.drawImage(sprite, 0, 0, sprite.width || sprite.naturalWidth, sprite.height || sprite.naturalHeight, 0, 0, obstacle.width, obstacle.height);
+          ctx.restore();
+          return;
+        }
+      }
+
+      if (obstacle.type === "redcard") {
+        const sprite = getPreparedObstacleSprite("hinderRedcard", assets.hinderRedcard);
+        if (sprite) {
+          ctx.imageSmoothingEnabled = false;
+          ctx.drawImage(sprite, 0, 0, sprite.width || sprite.naturalWidth, sprite.height || sprite.naturalHeight, 0, 0, obstacle.width, obstacle.height);
+          ctx.restore();
+          return;
+        }
+      }
+
+      if (obstacle.type === "yellowcard") {
+        const sprite = getPreparedObstacleSprite("hinderYellowcard", assets.hinderYellowcard);
+        if (sprite) {
+          ctx.imageSmoothingEnabled = false;
+          ctx.drawImage(sprite, 0, 0, sprite.width || sprite.naturalWidth, sprite.height || sprite.naturalHeight, 0, 0, obstacle.width, obstacle.height);
+          ctx.restore();
+          return;
+        }
+      }
+
+      if (obstacle.type === "ferry") {
+        const sprite = getPreparedObstacleSprite("hinderFerry", assets.hinderFerry);
+        if (sprite) {
+          ctx.imageSmoothingEnabled = false;
+          ctx.drawImage(sprite, 0, 0, sprite.width || sprite.naturalWidth, sprite.height || sprite.naturalHeight, 0, 0, obstacle.width, obstacle.height);
+          ctx.restore();
+          return;
+        }
+      }
+
+      if (obstacle.type === "penguin") {
+        const sprite = getPreparedObstacleSprite("hinderPenguin", assets.hinderPenguin);
+        if (sprite) {
+          ctx.imageSmoothingEnabled = false;
+          ctx.drawImage(sprite, 0, 0, sprite.width || sprite.naturalWidth, sprite.height || sprite.naturalHeight, 0, 0, obstacle.width, obstacle.height);
+          ctx.restore();
+          return;
+        }
+      }
+
+      if (obstacle.type === "seamonster") {
+        const sprite = getPreparedObstacleSprite("hinderSeaSerpent", assets.hinderSeaSerpent);
+        if (sprite) {
+          ctx.imageSmoothingEnabled = false;
+          ctx.drawImage(sprite, 0, 0, sprite.width || sprite.naturalWidth, sprite.height || sprite.naturalHeight, 0, 0, obstacle.width, obstacle.height);
+          ctx.restore();
+          return;
+        }
       }
 
       switch (obstacle.type) {
-        case "raincloud":
-          drawRaincloud(obstacle);
-          break;
-        case "wave":
-          drawWave(obstacle);
-          break;
-        case "roadwork":
-          drawRoadwork(obstacle);
-          break;
-        case "gull":
-          drawGull(obstacle);
-          break;
-        case "suitcase":
-          drawSuitcase(obstacle);
-          break;
-        case "ferry":
-          drawFerry(obstacle);
-          break;
         case "defender":
           drawDefender(obstacle, false);
-          break;
-        case "redcard":
-          drawCard("#d62828");
-          break;
-        case "yellowcard":
-          drawCard("#ffcf33");
-          break;
-        case "thunder":
-          drawThunder(obstacle);
           break;
         case "tractor":
           drawTractor(obstacle);
@@ -1977,7 +2036,7 @@
           drawDefender(obstacle, true);
           break;
         default:
-          drawRoadwork(obstacle);
+          drawTractor(obstacle);
       }
 
       ctx.restore();
@@ -2167,78 +2226,128 @@
       ctx.fillRect(34, 12, 8, 12);
     }
 
+    function drawSoup() {
+      ctx.fillStyle = "#f7f8fb";
+      ctx.beginPath();
+      ctx.roundRect(8, 16, 32, 18, 8);
+      ctx.fill();
+      ctx.strokeStyle = "#6d87b8";
+      ctx.lineWidth = 2;
+      ctx.stroke();
+      ctx.fillStyle = "#a68845";
+      ctx.beginPath();
+      ctx.ellipse(24, 18, 13, 5, 0, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.strokeStyle = "rgba(255,255,255,0.9)";
+      ctx.beginPath();
+      ctx.moveTo(18, 8);
+      ctx.quadraticCurveTo(14, 2, 18, -2);
+      ctx.moveTo(26, 8);
+      ctx.quadraticCurveTo(30, 2, 26, -2);
+      ctx.stroke();
+    }
+
+    function pickupAccent(type) {
+      const accents = {
+        coin: "#d8a82f",
+        ball: "#2d7fb8",
+        trophy: "#d8a82f",
+        sodd: "#7f8fa6",
+      };
+      return accents[type] || "#7a8aa0";
+    }
+
+    function drawPickupToken(pickup, drawInner) {
+      const accent = pickupAccent(pickup.type);
+      const isRare = pickup.type === "trophy" || pickup.type === "coin";
+      const outerRadius = Math.min(pickup.width, pickup.height) * 0.47;
+      const innerRadius = outerRadius * 0.82;
+
+      ctx.save();
+      ctx.translate(pickup.width * 0.5, pickup.height * 0.5);
+
+      if (isRare) {
+        ctx.shadowColor = `${accent}66`;
+        ctx.shadowBlur = 16;
+      }
+
+      ctx.fillStyle = "rgba(255,255,255,0.96)";
+      ctx.beginPath();
+      ctx.arc(0, 0, outerRadius, 0, Math.PI * 2);
+      ctx.fill();
+
+      ctx.shadowBlur = 0;
+      ctx.lineWidth = 3;
+      ctx.strokeStyle = accent;
+      ctx.stroke();
+
+      ctx.fillStyle = "rgba(248,250,253,0.98)";
+      ctx.beginPath();
+      ctx.arc(0, 0, innerRadius, 0, Math.PI * 2);
+      ctx.fill();
+
+      ctx.strokeStyle = "rgba(24, 33, 47, 0.08)";
+      ctx.lineWidth = 1;
+      ctx.stroke();
+
+      ctx.translate(-pickup.width * 0.5, -pickup.height * 0.5);
+      drawInner();
+      ctx.restore();
+    }
+
     function drawPickup(pickup) {
       ctx.save();
-      const bobOffset = Math.sin(pickup.bob) * 6;
+      const bobOffset = Math.sin(pickup.bob) * 4;
       ctx.translate(pickup.x, pickup.y + bobOffset);
 
-      const pickupSpriteMap = {
-        ball: "ball",
-        trophy: "trophy",
-        flag: "flag",
-        ticket: "ticket",
-        passport: "passport",
-        map: "map",
-        statue: "statue",
-        pretzel: "pretzel",
-        hotdog: "hotdog",
-        rocket: "rocket",
-        stadium: "stadium",
-        directFlight: "directFlight",
-        hattrick: "hattrick",
-        jersey: "jersey",
+      const spriteMap = {
+        coin: ["bonusCoin", assets.bonusCoin],
+        ball: ["bonusBall", assets.bonusBall],
+        trophy: ["bonusTrophy", assets.bonusTrophy],
+        sodd: ["bonusSoup", assets.bonusSoup],
       };
-      const spriteName = pickupSpriteMap[pickup.type];
-      if (spriteName && drawAtlasSprite(spriteName, 0, 0, pickup.width, pickup.height)) {
-        ctx.restore();
-        return;
+      const spriteEntry = spriteMap[pickup.type];
+      if (spriteEntry) {
+        const [spriteKey, spriteAsset] = spriteEntry;
+        const sprite = getPreparedObstacleSprite(spriteKey, spriteAsset);
+        if (sprite) {
+          const glow = pickup.type === "coin" || pickup.type === "trophy";
+          if (glow) {
+            ctx.shadowColor = "rgba(255, 210, 70, 0.5)";
+            ctx.shadowBlur = 12;
+          }
+          ctx.imageSmoothingEnabled = false;
+          ctx.drawImage(
+            sprite,
+            0,
+            0,
+            sprite.width || sprite.naturalWidth,
+            sprite.height || sprite.naturalHeight,
+            0,
+            0,
+            pickup.width,
+            pickup.height
+          );
+          ctx.restore();
+          return;
+        }
       }
 
       switch (pickup.type) {
+        case "coin":
+          drawPickupToken(pickup, () => drawTrophy(pickup));
+          break;
         case "ball":
-          drawBall(pickup);
+          drawPickupToken(pickup, () => drawBall(pickup));
           break;
         case "trophy":
-          drawTrophy(pickup);
+          drawPickupToken(pickup, () => drawTrophy(pickup));
           break;
-        case "flag":
-          drawFlag();
-          break;
-        case "ticket":
-          drawTicket();
-          break;
-        case "passport":
-          drawPassport();
-          break;
-        case "statue":
-          drawStatue();
-          break;
-        case "map":
-          drawMap();
-          break;
-        case "pretzel":
-          drawPretzel();
-          break;
-        case "hotdog":
-          drawHotdog();
-          break;
-        case "rocket":
-          drawRocket();
-          break;
-        case "stadium":
-          drawStadium();
-          break;
-        case "directFlight":
-          drawDirectFlight();
-          break;
-        case "hattrick":
-          drawHatTrick();
-          break;
-        case "jersey":
-          drawJersey();
+        case "sodd":
+          drawPickupToken(pickup, drawSoup);
           break;
         default:
-          drawTrophy(pickup);
+          drawPickupToken(pickup, () => drawTrophy(pickup));
       }
 
       ctx.restore();
@@ -2287,13 +2396,13 @@
 
     function shareScore() {
       const shareText = state.won
-        ? `Jeg fikk Sørloth helt til VM 2026! ${formatNumber(Math.floor(state.distance))} km og ${formatNumber(state.score)} poeng. Klarer du å slå meg?`
-        : `Jeg kom ${formatNumber(Math.floor(state.distance))} km på vei mot VM 2026 i USA, Canada og Mexico og tok ${formatNumber(state.score)} poeng i Sørloths VM-reise.`;
+        ? `Jeg fikk Fosningen til VM! ${formatNumber(Math.floor(state.distance))} km og ${formatNumber(state.score)} poeng. Klarer du å slå meg?`
+        : `Jeg kom ${formatNumber(Math.floor(state.distance))} km på vei mot VM og tok ${formatNumber(state.score)} poeng i Kommer fosningen til VM?.`;
 
       if (navigator.share) {
         navigator
           .share({
-            title: "Sørloths VM-reise",
+            title: "Kommer fosningen til VM?",
             text: shareText,
             url: window.location.href,
           })
@@ -2313,6 +2422,36 @@
           }
         });
       }
+    }
+
+    async function toggleFullscreen() {
+      const target = elements.gameCard || root;
+      const isFullscreen = document.fullscreenElement === target;
+      try {
+        if (isFullscreen) {
+          await document.exitFullscreen();
+        } else if (target.requestFullscreen) {
+          await target.requestFullscreen();
+        }
+      } catch {
+        return;
+      }
+    }
+
+    function syncFullscreenUi() {
+      const target = elements.gameCard || root;
+      const active = document.fullscreenElement === target;
+      root.classList.toggle("pmwv-is-fullscreen", active);
+      if (elements.gameCard) {
+        elements.gameCard.classList.toggle("pmwv-is-fullscreen-target", active);
+      }
+      if (elements.fullscreenButton) {
+        elements.fullscreenButton.textContent = active ? "Lukk fullskjerm" : "Fullskjerm";
+      }
+      if (elements.startFullscreenButton) {
+        elements.startFullscreenButton.textContent = active ? "Spill i fullskjerm" : "Start i fullskjerm";
+      }
+      updateCanvasSize();
     }
 
     function handleKeyboardAction(event) {
@@ -2345,6 +2484,15 @@
     if (elements.startButton) {
       elements.startButton.addEventListener("click", resetGame);
     }
+    if (elements.startFullscreenButton) {
+      elements.startFullscreenButton.addEventListener("click", async () => {
+        await toggleFullscreen();
+        resetGame();
+      });
+    }
+    if (elements.fullscreenButton) {
+      elements.fullscreenButton.addEventListener("click", toggleFullscreen);
+    }
     if (elements.restartButton) {
       elements.restartButton.addEventListener("click", resetGame);
     }
@@ -2360,8 +2508,10 @@
     });
     root.addEventListener("keydown", handleKeyboardAction);
     window.addEventListener("resize", updateCanvasSize);
+    document.addEventListener("fullscreenchange", syncFullscreenUi);
 
     updateCanvasSize();
+    syncFullscreenUi();
     state.player.y = WIDGET_CONFIG.groundY - state.player.height;
     updateHud();
     setFact(WIDGET_CONFIG.facts[0]);
