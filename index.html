@@ -7,31 +7,37 @@
   tabindex="0"
 >
   <section class="pmwv-game-card">
-    <div class="pmwv-game-toolbar" aria-label="Spillvalg">
-      <section class="pmwv-hud" aria-label="Spillstatus">
-        <article class="pmwv-hud-card">
-          <span class="pmwv-label">Kilometer</span>
-          <strong data-role="km-count" aria-live="polite">0 km</strong>
-        </article>
-        <article class="pmwv-hud-card">
-          <span class="pmwv-label">Poeng</span>
-          <strong data-role="score-count" aria-live="polite">0</strong>
-        </article>
-      </section>
-      <button type="button" class="pmwv-button pmwv-button-secondary pmwv-fullscreen-button" data-role="fullscreen-button">
-        Fullskjerm
-      </button>
-    </div>
-
-    <p class="pmwv-route-copy pmwv-route-copy-inline" data-role="route-copy" aria-live="polite">
-      Du har kommet 0 km. Det er 6 500 km igjen til VM.
-    </p>
-
     <p class="pmwv-fact-box" data-role="fact-box" aria-live="polite">
       Fosen sender Fosningen ut på den store VM-reisa.
     </p>
 
     <div class="pmwv-canvas-shell">
+      <div class="pmwv-canvas-ui" aria-label="Spillstatus">
+        <section class="pmwv-hud pmwv-hud-overlay" aria-label="Spillstatus">
+          <article class="pmwv-hud-card pmwv-hud-badge">
+            <span class="pmwv-label">Km</span>
+            <strong data-role="km-count" aria-live="polite">0 km</strong>
+          </article>
+          <article class="pmwv-hud-card pmwv-hud-badge">
+            <span class="pmwv-label">Poeng</span>
+            <strong data-role="score-count" aria-live="polite">0</strong>
+          </article>
+        </section>
+        <button
+          type="button"
+          class="pmwv-button pmwv-button-secondary pmwv-fullscreen-button pmwv-fullscreen-button-overlay"
+          data-role="fullscreen-button"
+          aria-label="Åpne fullskjerm"
+          title="Fullskjerm"
+        >
+          Full
+        </button>
+      </div>
+
+      <p class="pmwv-route-copy pmwv-route-copy-inline pmwv-route-copy-overlay" data-role="route-copy" aria-live="polite">
+        Du har kommet 0 km. Det er 6 500 km igjen til VM.
+      </p>
+
       <canvas
         class="pmwv-canvas"
         data-role="game-canvas"

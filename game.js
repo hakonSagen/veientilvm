@@ -88,13 +88,13 @@
       {
         type: "gull",
         label: "sint måke",
-        width: 84,
-        height: 46,
-        y: 244,
+        width: 112,
+        height: 62,
+        y: 232,
         rarity: 5,
         stages: ["fosen", "ocean"],
         message: "Oi! Fosningen traff en sint måke.",
-        hitbox: { x: 10, y: 10, width: 60, height: 22 },
+        hitbox: { x: 12, y: 14, width: 82, height: 30 },
       },
       {
         type: "penguin",
@@ -184,7 +184,7 @@
     playerJump: "Grafikk/Fosningen/ChatGPT Image 7. juni 2026, 21_35_50.png",
     playerHurt: "Grafikk/Fosningen/Skadet.png",
     playerStopped: "Grafikk/Fosningen/Stoppet.png",
-    playerWin: "Grafikk/Fosningen/figur_feirer_uten_bakgrunn.png",
+    playerWin: "Grafikk/Fosningen/player_celebrating_transparent_fixed_hand.png",
     bonusCoin: "Grafikk/Bonuser/ChatGPT Image 7. juni 2026, 22_11_33.png",
     bonusBall: "Grafikk/Bonuser/ChatGPT Image 7. juni 2026, 22_12_46.png",
     bonusTrophy: "Grafikk/Bonuser/ChatGPT Image 7. juni 2026, 22_18_27.png",
@@ -823,14 +823,14 @@
       if (!chosen) {
         return;
       }
-      const width = chosen.type === "trophy" ? 52 : chosen.type === "sodd" ? 50 : 44;
-      const height = chosen.type === "trophy" ? 52 : chosen.type === "sodd" ? 50 : 44;
+      const width = chosen.type === "trophy" ? 72 : chosen.type === "sodd" ? 68 : 62;
+      const height = chosen.type === "trophy" ? 72 : chosen.type === "sodd" ? 68 : 62;
       const yRange = chosen.maxY - chosen.minY;
       const offsetY = chosen.minY + Math.random() * Math.max(0, yRange);
       state.pickups.push({
         ...chosen,
         x: elements.canvas.width + 64,
-        y: WIDGET_CONFIG.groundY - 148 - offsetY,
+        y: WIDGET_CONFIG.groundY - 168 - offsetY,
         width,
         height,
         bob: Math.random() * Math.PI * 2,
@@ -1721,7 +1721,7 @@
           playerJump: { scale: 1.28, anchorX: 0.52, anchorY: 0.96, dx: 0, dy: -8, sway: 0.08 },
           playerHurt: { scale: 1.12, anchorX: 0.5, anchorY: 1, dx: 0, dy: -2, sway: 0 },
           playerStopped: { scale: 1.18, anchorX: 0.5, anchorY: 1, dx: 0, dy: 2, sway: 0 },
-          playerWin: { scale: 1.42, anchorX: 0.5, anchorY: 1, dx: 0, dy: -10, sway: -0.08 },
+          playerWin: { scale: 1.3, anchorX: 0.5, anchorY: 1, dx: 0, dy: -4, sway: -0.04 },
         }[poseName] || { scale: 1.16, anchorX: 0.5, anchorY: 1, dx: 0, dy: 0, sway: 0.01 };
         const sway = isWinning || isCrashed ? poseConfig.sway : isJumping ? poseConfig.sway : runPhase * poseConfig.sway;
         const scaleX = isWinning ? 1.06 : 1;
