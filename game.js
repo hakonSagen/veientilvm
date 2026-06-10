@@ -2398,34 +2398,76 @@
       drawFireworks();
     }
 
-    function shareScore() {
+    function flashShareButton(label) {
+      if (!elements.shareButton) {
+        return;
+      }
+      elements.shareButton.textContent = label;
+      window.setTimeout(() => {
+        if (elements.shareButton) {
+          elements.shareButton.textContent = "Del resultat";
+        }
+      }, 2200);
+    }
+
+    function legacyCopyText(text) {
+      const textarea = document.createElement("textarea");
+      textarea.value = text;
+      textarea.setAttribute("readonly", "readonly");
+      textarea.style.position = "absolute";
+      textarea.style.left = "-9999px";
+      document.body.appendChild(textarea);
+      textarea.select();
+      textarea.setSelectionRange(0, textarea.value.length);
+      let copied = false;
+      try {
+        copied = document.execCommand("copy");
+      } catch {
+        copied = false;
+      }
+      document.body.removeChild(textarea);
+      return copied;
+    }
+
+    async function shareScore() {
       const shareText = state.won
         ? `Jeg fikk Fosningen til VM! ${formatNumber(Math.floor(state.distance))} km og ${formatNumber(state.score)} poeng. Klarer du å slå meg?`
         : `Jeg kom ${formatNumber(Math.floor(state.distance))} km på vei mot VM og tok ${formatNumber(state.score)} poeng i Kommer fosningen til VM?.`;
+      const sharePayload = `${shareText} ${window.location.href}`.trim();
 
       if (navigator.share) {
-        navigator
-          .share({
+        try {
+          await navigator.share({
             title: "Kommer fosningen til VM?",
             text: shareText,
             url: window.location.href,
-          })
-          .catch(() => {});
+          });
+          flashShareButton("Delt");
+          return;
+        } catch (error) {
+          if (error && error.name === "AbortError") {
+            return;
+          }
+        }
+      }
+
+      if (navigator.clipboard && window.isSecureContext) {
+        try {
+          await navigator.clipboard.writeText(sharePayload);
+          flashShareButton("Resultatet er kopiert");
+          return;
+        } catch {
+          // fall through to older copy method
+        }
+      }
+
+      if (legacyCopyText(sharePayload)) {
+        flashShareButton("Resultatet er kopiert");
         return;
       }
 
-      if (navigator.clipboard) {
-        navigator.clipboard.writeText(shareText).then(() => {
-          if (elements.shareButton) {
-            elements.shareButton.textContent = "Resultatet er kopiert";
-            window.setTimeout(() => {
-              if (elements.shareButton) {
-                elements.shareButton.textContent = "Del resultat";
-              }
-            }, 1800);
-          }
-        });
-      }
+      window.prompt("Kopier resultatet ditt her:", sharePayload);
+      flashShareButton("Klar til kopiering");
     }
 
     async function toggleFullscreen() {
