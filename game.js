@@ -1,5 +1,7 @@
 (() => {
   const WIDGET_SELECTOR = '[id^="pm-widget-fosningen-vm-reise"]';
+  const CANVAS_WIDTH = 960;
+  const CANVAS_HEIGHT = 540;
   const WIDGET_CONFIG = {
     totalDistance: 6500,
     baseSpeed: 1.95,
@@ -646,8 +648,10 @@
         }
       }
 
-      elements.canvas.width = width;
-      elements.canvas.height = height;
+      elements.canvas.width = CANVAS_WIDTH;
+      elements.canvas.height = CANVAS_HEIGHT;
+      elements.canvas.style.width = `${width}px`;
+      elements.canvas.style.height = `${height}px`;
     }
 
     function currentStage() {
