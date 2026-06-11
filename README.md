@@ -44,7 +44,6 @@ Bruk denne koden i artikkelen og bytt ut `DIN-RENDER-URL` med den publiserte adr
     src="https://DIN-RENDER-URL.onrender.com/"
     title="Kommer fosningen til VM?"
     loading="lazy"
-    allow="fullscreen; clipboard-write"
     allowfullscreen
     style="display:block;width:100%;aspect-ratio:16/9;border:0;border-radius:12px;overflow:hidden;background:#eef3f8;"
   ></iframe>
@@ -59,7 +58,6 @@ Hvis embedsystemet i publiseringsløsningen ikke godtar `aspect-ratio`, bruk den
     src="https://DIN-RENDER-URL.onrender.com/"
     title="Kommer fosningen til VM?"
     loading="lazy"
-    allow="fullscreen; clipboard-write"
     allowfullscreen
     style="position:absolute;inset:0;width:100%;height:100%;border:0;border-radius:12px;overflow:hidden;background:#eef3f8;"
   ></iframe>

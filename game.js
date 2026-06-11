@@ -549,7 +549,6 @@
       startFullscreenButton: root.querySelector('[data-role="start-fullscreen-button"]'),
       fullscreenButton: root.querySelector('[data-role="fullscreen-button"]'),
       restartButton: root.querySelector('[data-role="restart-button"]'),
-      shareButton: root.querySelector('[data-role="share-button"]'),
     };
 
     if (!elements.canvas) {
@@ -2409,78 +2408,6 @@
       drawFireworks();
     }
 
-    function flashShareButton(label) {
-      if (!elements.shareButton) {
-        return;
-      }
-      elements.shareButton.textContent = label;
-      window.setTimeout(() => {
-        if (elements.shareButton) {
-          elements.shareButton.textContent = "Del resultat";
-        }
-      }, 2200);
-    }
-
-    function legacyCopyText(text) {
-      const textarea = document.createElement("textarea");
-      textarea.value = text;
-      textarea.setAttribute("readonly", "readonly");
-      textarea.style.position = "absolute";
-      textarea.style.left = "-9999px";
-      document.body.appendChild(textarea);
-      textarea.select();
-      textarea.setSelectionRange(0, textarea.value.length);
-      let copied = false;
-      try {
-        copied = document.execCommand("copy");
-      } catch {
-        copied = false;
-      }
-      document.body.removeChild(textarea);
-      return copied;
-    }
-
-    async function shareScore() {
-      const shareText = state.won
-        ? `Jeg fikk Fosningen til VM! ${formatNumber(Math.floor(state.distance))} km og ${formatNumber(state.score)} poeng. Klarer du å slå meg?`
-        : `Jeg kom ${formatNumber(Math.floor(state.distance))} km på vei mot VM og tok ${formatNumber(state.score)} poeng i Kommer fosningen til VM?.`;
-      const sharePayload = `${shareText} ${window.location.href}`.trim();
-
-      if (navigator.share) {
-        try {
-          await navigator.share({
-            title: "Kommer fosningen til VM?",
-            text: shareText,
-            url: window.location.href,
-          });
-          flashShareButton("Delt");
-          return;
-        } catch (error) {
-          if (error && error.name === "AbortError") {
-            return;
-          }
-        }
-      }
-
-      if (navigator.clipboard && window.isSecureContext) {
-        try {
-          await navigator.clipboard.writeText(sharePayload);
-          flashShareButton("Resultatet er kopiert");
-          return;
-        } catch {
-          // fall through to older copy method
-        }
-      }
-
-      if (legacyCopyText(sharePayload)) {
-        flashShareButton("Resultatet er kopiert");
-        return;
-      }
-
-      window.prompt("Kopier resultatet ditt her:", sharePayload);
-      flashShareButton("Klar til kopiering");
-    }
-
     async function toggleFullscreen() {
       const target = elements.gameCard || root;
       const isFullscreen = document.fullscreenElement === target;
@@ -2552,9 +2479,6 @@
     }
     if (elements.restartButton) {
       elements.restartButton.addEventListener("click", resetGame);
-    }
-    if (elements.shareButton) {
-      elements.shareButton.addEventListener("click", shareScore);
     }
     elements.canvas.addEventListener("pointerdown", () => {
       if (state.gameOver) {
