@@ -635,9 +635,9 @@
     function updateCanvasSize() {
       const shell = elements.canvasShell || root;
       const isFullscreen = root.classList.contains("pmwv-is-fullscreen");
-      const availableWidth = Math.max(320, Math.floor((shell.clientWidth || root.clientWidth) - 2));
+      const availableWidth = Math.max(220, Math.floor((shell.clientWidth || root.clientWidth) - 2));
 
-      let width = Math.min(980, availableWidth);
+      let width = Math.min(CANVAS_WIDTH, availableWidth);
       let height = Math.floor(width * 0.5625);
 
       if (isFullscreen && shell.clientHeight > 0) {
@@ -709,6 +709,7 @@
     function updateHud() {
       const travelled = Math.floor(state.distance);
       const remaining = Math.max(0, WIDGET_CONFIG.totalDistance - travelled);
+      const compactUi = (root.clientWidth || elements.canvas.clientWidth || CANVAS_WIDTH) < 430;
       if (elements.kmCount) {
         elements.kmCount.textContent = `${formatNumber(travelled)} km`;
       }
@@ -724,11 +725,13 @@
       if (elements.routeCopy) {
         const finaleCopy =
           currentStage() === "finale"
-            ? ` Finaleutfordring: ${state.finalTokensCollected} av ${WIDGET_CONFIG.finalTokensRequired} VM-symboler.`
+            ? compactUi
+              ? ` VM: ${state.finalTokensCollected}/${WIDGET_CONFIG.finalTokensRequired}.`
+              : ` Finaleutfordring: ${state.finalTokensCollected} av ${WIDGET_CONFIG.finalTokensRequired} VM-symboler.`
             : "";
-        elements.routeCopy.textContent =
-          `Du har kommet ${formatNumber(travelled)} km. Det er ${formatNumber(remaining)} km igjen til VM.` +
-          finaleCopy;
+        elements.routeCopy.textContent = compactUi
+          ? `${formatNumber(remaining)} km igjen til VM.` + finaleCopy
+          : `Du har kommet ${formatNumber(travelled)} km. Det er ${formatNumber(remaining)} km igjen til VM.` + finaleCopy;
       }
       if (elements.progressFill) {
         elements.progressFill.style.width = `${Math.min(100, (state.distance / WIDGET_CONFIG.totalDistance) * 100)}%`;

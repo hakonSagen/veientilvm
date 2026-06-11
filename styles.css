@@ -485,49 +485,56 @@
   }
 
   [id^="pm-widget-fosningen-vm-reise"] .pmwv-canvas-ui {
-    top: 0.45rem;
-    left: 0.45rem;
-    right: 0.45rem;
-    gap: 0.35rem;
+    top: 0.32rem;
+    left: 0.32rem;
+    right: 0.32rem;
+    gap: 0.28rem;
   }
 
   [id^="pm-widget-fosningen-vm-reise"] .pmwv-hud-overlay {
-    gap: 0.3rem;
-    grid-template-columns: repeat(2, minmax(0, 5.85rem));
+    gap: 0.24rem;
+    grid-template-columns: repeat(2, minmax(0, 5.1rem));
   }
 
   [id^="pm-widget-fosningen-vm-reise"] .pmwv-hud-badge {
-    min-height: 2.7rem;
-    padding: 0.34rem 0.46rem;
+    min-height: 2.32rem;
+    padding: 0.24rem 0.34rem;
+    border-radius: 8px;
   }
 
   [id^="pm-widget-fosningen-vm-reise"] .pmwv-hud-badge .pmwv-label {
-    font-size: 0.64rem;
+    margin-bottom: 0.05rem;
+    font-size: 0.58rem;
   }
 
   [id^="pm-widget-fosningen-vm-reise"] .pmwv-hud-badge strong {
-    font-size: 0.88rem;
+    font-size: 0.78rem;
   }
 
   [id^="pm-widget-fosningen-vm-reise"] .pmwv-fullscreen-button-overlay {
-    padding: 0.38rem 0.5rem;
-    font-size: 0.74rem;
+    padding: 0.26rem 0.38rem;
+    font-size: 0.68rem;
+    border-radius: 8px;
   }
 
   [id^="pm-widget-fosningen-vm-reise"] .pmwv-route-copy-overlay {
-    left: 0.45rem;
-    right: 0.45rem;
-    top: 3.15rem;
-    padding: 0.28rem 0.48rem;
-    font-size: 0.75rem;
-    line-height: 1.22;
+    left: 0.32rem;
+    right: 0.32rem;
+    top: 2.7rem;
+    padding: 0.2rem 0.38rem;
+    font-size: 0.68rem;
+    line-height: 1.16;
+    border-radius: 8px;
   }
 
   [id^="pm-widget-fosningen-vm-reise"] .pmwv-fact-box {
-    margin: 0 0.45rem 0.16rem;
-    padding: 0.28rem 0.52rem;
-    font-size: 0.82rem;
-    line-height: 1.24;
+    margin: 0 0.32rem 0.12rem;
+    padding: 0.22rem 0.42rem;
+    font-size: 0.72rem;
+    line-height: 1.14;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   [id^="pm-widget-fosningen-vm-reise"] .pmwv-progress-stops {
@@ -535,7 +542,7 @@
   }
 
   [id^="pm-widget-fosningen-vm-reise"] .pmwv-canvas-shell {
-    padding: 0.1rem;
+    padding: 0.05rem;
   }
 
   [id^="pm-widget-fosningen-vm-reise"] .pmwv-overlay {
@@ -553,7 +560,7 @@
 
   [id^="pm-widget-fosningen-vm-reise"] .pmwv-overlay-panel p,
   [id^="pm-widget-fosningen-vm-reise"] .pmwv-start-list {
-    font-size: 0.95rem;
+    font-size: 0.9rem;
   }
 
   [id^="pm-widget-fosningen-vm-reise"] .pmwv-overlay-actions {
@@ -562,5 +569,24 @@
 
   [id^="pm-widget-fosningen-vm-reise"] .pmwv-overlay-actions .pmwv-button {
     width: 100%;
+  }
+}
+
+@media (max-width: 380px) {
+  [id^="pm-widget-fosningen-vm-reise"] .pmwv-hud-overlay {
+    grid-template-columns: repeat(2, minmax(0, 4.55rem));
+  }
+
+  [id^="pm-widget-fosningen-vm-reise"] .pmwv-hud-badge strong {
+    font-size: 0.72rem;
+  }
+
+  [id^="pm-widget-fosningen-vm-reise"] .pmwv-route-copy-overlay {
+    top: 2.54rem;
+    font-size: 0.64rem;
+  }
+
+  [id^="pm-widget-fosningen-vm-reise"] .pmwv-fullscreen-button-overlay {
+    font-size: 0.62rem;
   }
 }
