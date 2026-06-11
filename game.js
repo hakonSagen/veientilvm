@@ -738,6 +738,12 @@
       }
     }
 
+    function syncOverlayState() {
+      const startVisible = !!elements.startOverlay && !elements.startOverlay.classList.contains("pmwv-hidden");
+      const gameOverVisible = !!elements.gameOverOverlay && !elements.gameOverOverlay.classList.contains("pmwv-hidden");
+      root.classList.toggle("pmwv-has-overlay", startVisible || gameOverVisible);
+    }
+
     function resetGame() {
       state.running = true;
       state.gameOver = false;
@@ -777,6 +783,7 @@
       if (elements.gameOverOverlay) {
         elements.gameOverOverlay.classList.add("pmwv-hidden");
       }
+      syncOverlayState();
       updateHud();
     }
 
@@ -1195,6 +1202,7 @@
       if (elements.gameOverOverlay) {
         elements.gameOverOverlay.classList.remove("pmwv-hidden");
       }
+      syncOverlayState();
     }
 
     function collectPickup(pickup) {
@@ -2564,6 +2572,7 @@
     state.player.y = WIDGET_CONFIG.groundY - state.player.height;
     updateHud();
     setFact(WIDGET_CONFIG.facts[0]);
+    syncOverlayState();
     draw();
     window.requestAnimationFrame(frame);
   }
